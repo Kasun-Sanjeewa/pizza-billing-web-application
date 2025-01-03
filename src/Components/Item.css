@@ -14,7 +14,7 @@
     border: 1px solid #ccc;
     overflow-y: auto;
     border-radius: 10px;
-    max-height: 100%;
+    height: 800px;
     /* Ensures the menu section doesn't grow too tall */
 }
 
@@ -41,11 +41,10 @@
     display: flex;
     flex-wrap: wrap;
     overflow-y: auto;
-    /* Enable vertical scrolling for items */
     max-height: 100%;
     justify-content: center;
     gap: 65px;
-    /* Prevents overflowing of items */
+
 }
 
 .item-card {
@@ -70,6 +69,7 @@
     justify-content: center;
     border-radius: 10px;
     text-align: center;
+    height: 800px;
 
 }
 
@@ -79,17 +79,18 @@
 }
 
 .checkout-section .checkout-details {
-    margin-bottom: 600px;
+    margin-bottom: 480px;
 }
 
 .checkout-section button {
     display: block;
-    width: 100%;
+    width: 80%;
     padding: 10px;
-    margin: 5px 0;
+    margin: auto;
     border: none;
     color: #fff;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 .checkout-section .hold-button {
