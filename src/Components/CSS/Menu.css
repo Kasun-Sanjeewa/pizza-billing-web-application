@@ -21,6 +21,7 @@
     border: none;
     background: #f4f4f4;
     cursor: pointer;
+    text-align: center;
 }
 
 .menu-section button:hover,
