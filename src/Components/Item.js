@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import JsBarcode from 'jsbarcode';
 import './CSS/Item.css';
 
 const Item = () => {
-    const items = [
+    const items = useMemo(() => [
         { name: 'Burger Bun', barcode: '465123', price: 650, img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Pizza-3007395.jpg/1200px-Pizza-3007395.jpg' },
         { name: 'FTC Feast Pizza', barcode: '8745135', price: 4000, img: 'https://www.superhealthykids.com/wp-content/uploads/2021/10/best-veggie-pizza-featured-image-square-2.jpg' },
         { name: 'Vanilla Bean Latte', barcode: '846519864512', price: 650, img: 'https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/d6c392a84e4f665424d710649452e7f9/Derivates/a6bdb196bee23faef1d8020319c7c64750ef7686.jpg' },
@@ -13,7 +13,7 @@ const Item = () => {
         { name: 'Spaghetti Bolognese', barcode: '547854845', price: 1100, img: 'https://facefoodmag.com/fotos/blog/mejores-pizzerias-palma-mallorca.jpg' },
         { name: 'Pineapple Coconut Mojito', barcode: '651255478', price: 750, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZ9c4T8ahaLDklv9SRpAWhrYIyRZYuphaLPg&sg' },
         { name: 'Creamy Alfredo Fettuccine', barcode: '78514521', price: 950, img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYRIKyuBmtVmOXTpYXn7P8NfiY8PNp8FpTkjKWvkJ9_JbvQI_kqxMAY1jmUXo6sU59S84&usqp=CAUg' },
-    ];
+    ], []);
 
     const barcodeRefs = useRef([]);
 

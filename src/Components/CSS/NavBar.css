@@ -119,16 +119,6 @@
     color: white;
 }
 
-.btn.refund {
-    background-color: #dc3545;
-    color: white;
-}
-
-.btn.remarks {
-    background-color: #6c757d;
-    color: white;
-}
-
 .btn.full {
     background-color: #6c757d;
     color: white;
@@ -144,10 +134,6 @@
     color: white;
 }
 
-.btn.setting {
-    background-color: #6c757d;
-    color: white;
-}
 
 .btn.down,
 .btn.up,
@@ -197,4 +183,181 @@
     font-weight: bold;
     font-family: Arial, Helvetica, sans-serif;
     /* Ensure it's above the content */
+}
+
+/* Small Devices (Mobile) */
+@media (max-width: 600px) {
+    .app {
+        flex-direction: column;
+    }
+
+    .main-content {
+        margin-left: 0;
+        margin-top: 4.5rem;
+        padding: 0.5rem;
+    }
+
+    .top-menu {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .top-menu .logo {
+        font-size: 1.5rem;
+    }
+
+    .top-menu-items {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .sidebar {
+        width: 70px;
+        top: 4.5rem;
+        height: 250px;
+        border-radius: 0;
+    }
+
+    .sidebar-item {
+        padding: 0.5rem;
+    }
+
+    .sidebar-item .icon {
+        font-size: 1.2rem;
+    }
+
+    .sidebar-item .label {
+        font-size: 0.65rem;
+    }
+
+    .content-area {
+        padding: 0.5rem;
+        margin-top: 4.5rem;
+    }
+
+    .status-bar {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+}
+
+/* Medium Devices (Tablets) */
+@media (max-width: 768px) {
+
+    .top-menu {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .sidebar {
+        width: 80px;
+        top: 5rem;
+    }
+
+    .sidebar-item {
+        padding: 0.75rem;
+    }
+
+    .sidebar-item .icon {
+        font-size: 1.3rem;
+    }
+
+    .sidebar-item .label {
+        font-size: 0.7rem;
+    }
+
+    .main-content {
+        margin-left: 80px;
+        margin-top: 4.5rem;
+        padding: 0.75rem;
+    }
+
+    .status-bar {
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
+    }
+
+
+
+    .btn.return {
+        background-color: #ffc107;
+        color: white;
+        width: 150px;
+        justify-content: center;
+    }
+
+    .btn.full {
+        background-color: #6c757d;
+        color: white;
+        width: 150px;
+        justify-content: center;
+    }
+
+    .btn.expenses {
+        background-color: #198754;
+        color: white;
+        width: 150px;
+        justify-content: center;
+    }
+
+    .btn.customer {
+        background-color: #0d6efd;
+        color: white;
+        width: 150px;
+        justify-content: center;
+    }
+
+    .btn.new {
+        background-color: #fd7e14;
+        color: white;
+        width: 150px;
+        justify-content: center;
+    }
+
+    .btn.all {
+        background-color: #6c757d;
+        color: white;
+        width: 150px;
+        justify-content: center;
+    }
+
+    .down {
+        width: 100px;
+    }
+
+    .up {
+        width: 100px;
+    }
+
+
+
+}
+
+/* Large Devices (Desktops) */
+@media (min-width: 1200px) {
+    .sidebar {
+        width: 120px;
+        top: 6rem;
+    }
+
+    .sidebar-item {
+        padding: 1.5rem;
+    }
+
+    .sidebar-item .icon {
+        font-size: 2rem;
+    }
+
+    .sidebar-item .label {
+        font-size: 0.875rem;
+    }
+
+    .status-bar {
+        font-size: 1rem;
+        padding: 1.5rem 12rem;
+    }
 }

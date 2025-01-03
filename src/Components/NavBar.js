@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaHome, FaKeyboard, FaMapMarkerAlt, FaSignOutAlt, FaPowerOff, FaArrowDown, FaArrowUp } from 'react-icons/fa';
+import { FaHome, FaSignOutAlt, FaPowerOff, FaArrowDown, FaArrowUp, FaUserShield } from 'react-icons/fa';
 import './CSS/NavBar.css';
 import HeroPage from './HeroPage';
 
@@ -45,8 +45,7 @@ function NavBar() {
                 {/* Sidebar */}
                 <div className="sidebar">
                     <SidebarItem icon={<FaHome />} label="POS" active />
-                    <SidebarItem icon={<FaKeyboard />} label="Sales" />
-                    <SidebarItem icon={<FaMapMarkerAlt />} label="Location" />
+                    <SidebarItem icon={<FaUserShield />} label="Admin" />
                     <SidebarItem icon={<FaSignOutAlt />} label="Logout" />
                     <SidebarItem icon={<FaPowerOff />} label="Exit" />
                 </div>
