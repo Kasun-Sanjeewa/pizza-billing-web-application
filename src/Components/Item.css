@@ -14,7 +14,7 @@
     border: 1px solid #ccc;
     overflow-y: auto;
     border-radius: 10px;
-    height: 800px;
+    height: auto;
     /* Ensures the menu section doesn't grow too tall */
 }
 
