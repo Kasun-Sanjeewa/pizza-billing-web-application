@@ -1,0 +1,26 @@
+.chechout-text {
+    margin-bottom: 55px;
+}
+
+.checkout-section .checkout-details {
+    margin-bottom: 480px;
+}
+
+.checkout-section button {
+    display: block;
+    width: 80%;
+    padding: 10px;
+    margin: auto;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.checkout-section .hold-button {
+    background: #f0ad4e;
+}
+
+.checkout-section .proceed-button {
+    background: #5cb85c;
+}

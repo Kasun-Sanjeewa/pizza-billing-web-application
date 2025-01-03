@@ -1,27 +1,10 @@
-import React, { useState } from 'react';
+
+import Checkout from './Checkout';
 import './Item.css';
+import Menu from './Menu';
 
 const Item = () => {
-    const [selectedCategory, setSelectedCategory] = useState('All Items');
 
-    const categories = [
-        'All Items',
-        'My Cat 1',
-        'Cappuccino',
-        'Sandwich',
-        'Chocolate',
-        'Mojito',
-        'Toasties',
-        'Pasta',
-        'Pizza',
-        'Zone One',
-        'Hot Drinks',
-        'Cool Drinks',
-        'Lunch',
-        'Breakfast',
-        'Mains',
-        'Quiet Zone',
-    ];
 
     const items = [
         { name: 'Burger Bun', barcode: '465123', price: 650 },
@@ -52,18 +35,7 @@ const Item = () => {
 
     return (
         <div className="container">
-            <div className="menu-section">
-                <h2>Filter</h2>
-                {categories.map((category) => (
-                    <button
-                        key={category}
-                        className={selectedCategory === category ? 'active-category' : ''}
-                        onClick={() => setSelectedCategory(category)}
-                    >
-                        {category}
-                    </button>
-                ))}
-            </div>
+            <Menu />
 
             <div className="items-section">
                 {items.map((item) => (
@@ -76,14 +48,7 @@ const Item = () => {
 
             </div>
             <div className="checkout-section">
-                <h2>Checkout</h2>
-                <div className="checkout-details">
-                    <div className='chechout-text'>Customer: Walking Customer</div>
-                    <div className='chechout-text'>Table: Delivery</div>
-                    <div className='chechout-text'>Total: LKR 0.00</div>
-                    <div className='chechout-text'>Payable: LKR 0.00</div>
-                </div>
-                <button className="proceed-button">Checkout</button>
+                <Checkout />
             </div>
         </div>
     );
