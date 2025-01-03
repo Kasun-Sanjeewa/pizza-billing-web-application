@@ -24,22 +24,20 @@ function NavBar() {
                 <div className="top-menu">
                     <div className="logo">PizzaHut</div> {/* Add the logo */}
                     <div className="top-menu-items">
-                        <button className="btn return">Return</button>
-                        <button className="btn refund">Refund</button>
-                        <button className="btn remarks">Remarks</button>
-                        <button className="btn full">Full</button>
-                        <button className="btn expenses">Expenses</button>
-                        <button className="btn customer">Customer</button>
-                        <button className="btn setting">Setting</button>
+
                         <button className="btn down">
                             <FaArrowDown /> Down
                         </button>
                         <button className="btn up">
                             <FaArrowUp /> Up
                         </button>
-                        <button className="btn select-table">
-                            <FaTable /> Select Table
-                        </button>
+
+                        <button className="btn return">Return</button>
+                        <button className="btn full">Full</button>
+                        <button className="btn expenses">Expenses</button>
+                        <button className="btn customer">Customer</button>
+
+
                         <button className="btn new">New</button>
                         <button className="btn all">All</button>
                     </div>
@@ -57,10 +55,10 @@ function NavBar() {
 
                 {/* Status Bar */}
                 <div className="status-bar">
-                    <div>Thilina Ruwan</div>
-                    <div>Royal Restaurant</div>
+                    <div>Kasun Sanjeewa</div>
+                    <div>Pizza Restaurant</div>
                     <div>{new Date().toLocaleString()}</div>
-                    <div>Powered By Payshia.com</div>
+                    <div>Powered By KSgroup.com</div>
                 </div>
             </div>
         </div>
