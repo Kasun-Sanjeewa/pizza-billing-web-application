@@ -65,3 +65,107 @@
 .barcode-image {
     height: 50px;
 }
+
+/* Small Devices (Mobile) */
+@media (max-width: 600px) {
+    .items-section {
+        width: 100%;
+        /* Full width on small screens */
+        padding: 5px;
+        /* Reduce padding */
+        gap: 15px;
+        /* Reduce gap between items */
+        flex-wrap: wrap;
+    }
+
+    .item-card {
+        width: 90%;
+        /* Expand card to almost full width */
+        padding: 8px;
+        /* Reduce padding */
+        border-radius: 12px;
+        /* Smaller border radius for compact look */
+    }
+
+    .item-image {
+        height: 200px;
+        /* Adjust image height */
+    }
+
+    .item-name {
+        font-size: 16px;
+        /* Slightly smaller font size */
+    }
+
+    .item-barcode,
+    .item-barcode-number,
+    .item-price {
+        font-size: 12px;
+        /* Smaller text for compact layout */
+    }
+}
+
+/* Medium Devices (Tablets) */
+@media (max-width: 768px) {
+    .items-section {
+        width: 300px;
+        /* Slightly narrower than desktops */
+        padding: 8px;
+        /* Moderate padding */
+        gap: 20px;
+        /* Moderate gap */
+        margin-top: 150px;
+    }
+
+    .item-card {
+        width: 75%;
+        /* Two items per row on medium screens */
+        padding: 10px;
+        /* Standard padding */
+        border-radius: 15px;
+    }
+
+    .item-image {
+        height: 220px;
+        /* Adjust image height */
+    }
+
+    .item-name {
+        font-size: 17px;
+    }
+
+    .item-barcode,
+    .item-barcode-number,
+    .item-price {
+        font-size: 13px;
+        /* Moderate text size */
+    }
+}
+
+/* Large Devices (Desktops and Above) */
+@media (min-width: 1200px) {
+    .items-section {
+        width: 80%;
+        /* Default width */
+        gap: 30px;
+        /* Maintain spacious layout */
+    }
+
+
+    .item-image {
+        height: 240px;
+        /* Default height */
+    }
+
+    .item-name {
+        font-size: 18px;
+        /* Standard font size */
+    }
+
+    .item-barcode,
+    .item-barcode-number,
+    .item-price {
+        font-size: 14px;
+        /* Standard text size */
+    }
+}

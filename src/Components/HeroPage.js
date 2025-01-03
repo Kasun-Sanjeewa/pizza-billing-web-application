@@ -11,7 +11,7 @@ const HeroPage = () => {
 
     return (
         <div className="container">
-            <Menu />
+            <Menu className="abc" />
 
             <div className="items-section">
                 <Item />

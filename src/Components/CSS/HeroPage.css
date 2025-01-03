@@ -1,3 +1,4 @@
+/* General Layout */
 .container {
     display: flex;
     flex-direction: row;
@@ -8,7 +9,6 @@
     margin-bottom: 50px;
 }
 
-
 .checkout-section {
     width: 30%;
     padding: 20px;
@@ -18,5 +18,79 @@
     border-radius: 10px;
     text-align: center;
     height: 800px;
-
 }
+
+/* Hide menu-section on mobile */
+@media (max-width: 576px) {
+    .menu-section {
+        display: none;
+        /* Hide menu-section on mobile devices */
+    }
+
+    .container {
+        flex-direction: column;
+        /* Stack sections vertically */
+        scale: 100%;
+        /* Reset scaling for better readability on smaller screens */
+        margin-bottom: 20px;
+        /* Reduce margin */
+        height: auto;
+        /* Allow the height to adjust based on content */
+    }
+
+    .checkout-section {
+        width: 100%;
+        /* Full width for mobile screens */
+        height: auto;
+        /* Adjust height based on content */
+        padding: 15px;
+        /* Reduce padding */
+        margin-bottom: 20px;
+        /* Add spacing between stacked sections */
+    }
+}
+
+/* Medium Devices (Tablets) */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        /* Stack sections vertically */
+        scale: 100%;
+        /* Reset scaling */
+        margin-bottom: 30px;
+        /* Moderate margin */
+    }
+
+    .checkout-section {
+        width: 75%;
+        /* Slightly narrower than full width */
+        height: auto;
+        /* Flexible height */
+        padding: 20px;
+        margin-bottom: 100px;
+        margin-right: 5000px;
+    }
+}
+
+/* Large Devices (Desktops and Above) 
+@media (min-width: 1200px) {
+    .container {
+        flex-direction: row;
+     
+        scale: 95%;
+
+        margin-bottom: 50px;
+
+        height: 100%;
+
+    }
+
+    .checkout-section {
+        width: 30%;
+
+        height: 800px;
+
+        padding: 20px;
+
+    }
+}*/

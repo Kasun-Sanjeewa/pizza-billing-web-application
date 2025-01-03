@@ -24,3 +24,75 @@
 .checkout-section .proceed-button {
     background: #5cb85c;
 }
+
+/* Small Devices (Mobile) */
+@media (max-width: 576px) {
+    .chechout-text {
+        margin-bottom: 30px;
+    }
+
+    .checkout-section .checkout-details {
+        margin-bottom: 250px;
+    }
+
+    .checkout-section button {
+        width: 90%;
+        padding: 12px;
+    }
+
+    .checkout-section .hold-button {
+        background: #f0ad4e;
+    }
+
+    .checkout-section .proceed-button {
+        background: #5cb85c;
+    }
+}
+
+/* Medium Devices (Tablets) */
+@media (max-width: 768px) {
+    .chechout-text {
+        margin-bottom: 40px;
+    }
+
+    .checkout-section .checkout-details {
+        margin-bottom: 350px;
+    }
+
+    .checkout-section button {
+        width: 85%;
+        padding: 12px;
+    }
+
+    .checkout-section .hold-button {
+        background: #f0ad4e;
+    }
+
+    .checkout-section .proceed-button {
+        background: #5cb85c;
+    }
+}
+
+/* Large Devices (Desktops and Above) */
+@media (min-width: 1200px) {
+    .chechout-text {
+        margin-bottom: 55px;
+    }
+
+    .checkout-section .checkout-details {
+        margin-bottom: 480px;
+    }
+
+    .checkout-section button {
+        width: 80%;
+        padding: 10px;
+    }
+
+    .checkout-section .hold-button {
+        background: #f0ad4e;
+    }
+
+    .checkout-section .proceed-button {
+        background: #5cb85c;
+    }
+}
