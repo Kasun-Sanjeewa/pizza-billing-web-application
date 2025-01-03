@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import './Menu.css'
+import './CSS/Menu.css'
 
 export default function Menu() {
     const [selectedCategory, setSelectedCategory] = useState('All Items');

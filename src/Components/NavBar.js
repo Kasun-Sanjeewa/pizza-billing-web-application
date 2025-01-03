@@ -1,8 +1,7 @@
 import React from 'react';
-import { FaHome, FaKeyboard, FaMapMarkerAlt, FaSignOutAlt, FaPowerOff, FaArrowDown, FaArrowUp, FaTable } from 'react-icons/fa';
-import './NavBar.css';
-import Item from './Item';
-import './logo.png'
+import { FaHome, FaKeyboard, FaMapMarkerAlt, FaSignOutAlt, FaPowerOff, FaArrowDown, FaArrowUp } from 'react-icons/fa';
+import './CSS/NavBar.css';
+import HeroPage from './HeroPage';
 
 function SidebarItem({ icon, label, active }) {
     return (
@@ -19,7 +18,7 @@ function NavBar() {
             {/* Main Content */}
             <div className="main-content">
 
-                <Item />
+                <HeroPage />
                 {/* Top Menu */}
                 <div className="top-menu">
                     <div className="logo">PizzaHut</div> {/* Add the logo */}

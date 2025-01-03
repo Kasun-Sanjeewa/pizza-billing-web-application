@@ -1,7 +1,4 @@
-
-import Checkout from './Checkout';
-import './Item.css';
-import Menu from './Menu';
+import './CSS/Item.css';
 
 const Item = () => {
 
@@ -34,22 +31,15 @@ const Item = () => {
     ];
 
     return (
-        <div className="container">
-            <Menu />
+        <div className="items-section">
+            {items.map((item) => (
+                <div className="item-card" key={item.barcode}>
+                    <div className="item-name">{item.name}</div>
+                    <div className="item-barcode">{item.barcode}</div>
+                    <div className="item-price">LKR {item.price.toFixed(2)}</div>
+                </div>
+            ))}
 
-            <div className="items-section">
-                {items.map((item) => (
-                    <div className="item-card" key={item.barcode}>
-                        <div className="item-name">{item.name}</div>
-                        <div className="item-barcode">{item.barcode}</div>
-                        <div className="item-price">LKR {item.price.toFixed(2)}</div>
-                    </div>
-                ))}
-
-            </div>
-            <div className="checkout-section">
-                <Checkout />
-            </div>
         </div>
     );
 };
