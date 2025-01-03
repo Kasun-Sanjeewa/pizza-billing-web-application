@@ -1,0 +1,87 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow: hidden;
+}
+
+.menu-section {
+    width: 20%;
+    padding: 10px;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+    /* Enable vertical scrolling for categories */
+    max-height: 100%;
+    /* Ensures the menu section doesn't grow too tall */
+}
+
+.menu-section button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    text-align: left;
+    border: none;
+    background: #f4f4f4;
+    cursor: pointer;
+}
+
+.menu-section button:hover,
+.menu-section .active-category {
+    background: #007bff;
+    color: #fff;
+}
+
+.items-section {
+    width: 50%;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    /* Enable vertical scrolling for items */
+    max-height: 100%;
+    /* Prevents overflowing of items */
+}
+
+.item-card {
+    width: 30%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.item-card .item-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.checkout-section {
+    width: 30%;
+    padding: 10px;
+    border-left: 1px solid #ccc;
+}
+
+.checkout-section .checkout-details {
+    margin-bottom: 20px;
+}
+
+.checkout-section button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.checkout-section .hold-button {
+    background: #f0ad4e;
+}
+
+.checkout-section .proceed-button {
+    background: #5cb85c;
+}
