@@ -52,6 +52,7 @@ const Item = () => {
                     </button>
                 ))}
             </div>
+
             <div className="items-section">
                 {items.map((item) => (
                     <div className="item-card" key={item.barcode}>
@@ -60,17 +61,17 @@ const Item = () => {
                         <div className="item-price">LKR {item.price.toFixed(2)}</div>
                     </div>
                 ))}
+
             </div>
             <div className="checkout-section">
                 <h2>Checkout</h2>
                 <div className="checkout-details">
-                    <div>Customer: Walking Customer</div>
-                    <div>Table: Delivery</div>
-                    <div>Total: LKR 0.00</div>
-                    <div>Payable: LKR 0.00</div>
+                    <div className='chechout-text'>Customer: Walking Customer</div>
+                    <div className='chechout-text'>Table: Delivery</div>
+                    <div className='chechout-text'>Total: LKR 0.00</div>
+                    <div className='chechout-text'>Payable: LKR 0.00</div>
                 </div>
-                <button className="hold-button">Hold</button>
-                <button className="proceed-button">Proceed</button>
+                <button className="proceed-button">Checkout</button>
             </div>
         </div>
     );
