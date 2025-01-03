@@ -185,6 +185,13 @@
     /* Ensure it's above the content */
 }
 
+
+.Admin-btn {
+    all: unset;
+    background: none;
+}
+
+
 /* Small Devices (Mobile) */
 @media (max-width: 600px) {
     .app {

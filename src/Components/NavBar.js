@@ -12,7 +12,11 @@ function SidebarItem({ icon, label, active }) {
     );
 }
 
-function NavBar() {
+function NavBar({ isTrueHandler }) {
+
+    const pageHandler = () => {
+        isTrueHandler(false);
+    }
     return (
         <div className="app">
             {/* Main Content */}
@@ -45,7 +49,7 @@ function NavBar() {
                 {/* Sidebar */}
                 <div className="sidebar">
                     <SidebarItem icon={<FaHome />} label="POS" active />
-                    <SidebarItem icon={<FaUserShield />} label="Admin" />
+                    <button className='Admin-btn' onClick={pageHandler}><SidebarItem icon={<FaUserShield />} label="Admin" /></button>
                     <SidebarItem icon={<FaSignOutAlt />} label="Logout" />
                     <SidebarItem icon={<FaPowerOff />} label="Exit" />
                 </div>
