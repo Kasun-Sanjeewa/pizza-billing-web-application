@@ -2,6 +2,7 @@ import React from 'react';
 import { FaHome, FaKeyboard, FaMapMarkerAlt, FaSignOutAlt, FaPowerOff, FaArrowDown, FaArrowUp, FaTable } from 'react-icons/fa';
 import './NavBar.css';
 import Item from './Item';
+import './logo.png'
 
 function SidebarItem({ icon, label, active }) {
     return (
@@ -21,7 +22,7 @@ function NavBar() {
                 <Item />
                 {/* Top Menu */}
                 <div className="top-menu">
-                    <div className="logo">Logo</div> {/* Add the logo */}
+                    <div className="logo">PizzaHut</div> {/* Add the logo */}
                     <div className="top-menu-items">
                         <button className="btn return">Return</button>
                         <button className="btn refund">Refund</button>
