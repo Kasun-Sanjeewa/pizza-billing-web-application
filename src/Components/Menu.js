@@ -7,21 +7,17 @@ export default function Menu() {
 
     const categories = [
         'All Items',
-        'My Cat 1',
-        'Cappuccino',
-        'Sandwich',
-        'Chocolate',
-        'Mojito',
-        'Toasties',
-        'Pasta',
-        'Pizza',
-        'Zone One',
-        'Hot Drinks',
-        'Cool Drinks',
-        'Lunch',
-        'Breakfast',
-        'Mains',
-        'Quiet Zone',
+        'Classic Pizzas',
+        'Meat Lovers',
+        'Vegetarian Pizzas',
+        'Gourmet Pizzas',
+        'Seafood Pizzas',
+        'White Pizzas',
+        'Specialty Pizzas',
+        'Calzone',
+        'Flatbread & Thin Crust Pizzas',
+        'Dessert Pizzas',
+        'Seafood Delight',
     ];
     return (
         <div className="menu-section">
