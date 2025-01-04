@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import './CSS/ItemManagement.css';
 
-const ItemManagement = ({ isTrueHandler }) => {
-    const [items, setItems] = useState([
-        { id: 1, name: 'Burger Bun', barcode: '465123', price: 650 },
-        { id: 2, name: 'FTC Feast Pizza', barcode: '8745135', price: 4000 },
-    ]);
+const ItemManagement = ({ isTrueHandler, items: propItems }) => {
+    const [items, setItems] = useState(propItems);
 
     const [newItem, setNewItem] = useState({
         name: '',
@@ -38,7 +35,6 @@ const ItemManagement = ({ isTrueHandler }) => {
         setEditingItem(null);
     };
 
-    // Go back to NavBar
     const goBackToNavBar = () => {
         isTrueHandler(true); // Go back to NavBar
     };
@@ -71,10 +67,10 @@ const ItemManagement = ({ isTrueHandler }) => {
             </div>
 
             {/* Item List */}
-            <div className="item-list">
+            <div className="items-section">
                 {items.map((item) => (
-                    <div className="item-card" key={item.id}>
-                        {editingItem?.id === item.id ? (
+                    <div className="item-card" key={item.barcode}>
+                        {editingItem?.barcode === item.barcode ? (
                             <div className="edit-item-form">
                                 <input
                                     type="text"
@@ -96,12 +92,13 @@ const ItemManagement = ({ isTrueHandler }) => {
                         ) : (
                             <>
                                 <div className="item-details">
-                                    <h3>{item.name}</h3>
-                                    <p>Barcode: {item.barcode}</p>
-                                    <p>Price: LKR {item.price}</p>
+                                    <img src={item.img} alt={item.name} className="item-image" />
+                                    <h3 className="item-name">{item.name}</h3>
+                                    <p className="item-barcode">Barcode: {item.barcode}</p>
+                                    <p className="item-price">Price: LKR {item.price}</p>
                                 </div>
                                 <button onClick={() => handleEditItem(item)}>Edit</button>
-                                <button onClick={() => handleDeleteItem(item.id)}>Delete</button>
+                                <button onClick={() => handleDeleteItem(item.barcode)}>Delete</button>
                             </>
                         )}
                     </div>
@@ -110,7 +107,7 @@ const ItemManagement = ({ isTrueHandler }) => {
 
             <div className="center-button-container">
                 <button className="center-button" onClick={goBackToNavBar}>
-                    Back to Navigation
+                    Back to Home
                 </button>
             </div>
         </div>

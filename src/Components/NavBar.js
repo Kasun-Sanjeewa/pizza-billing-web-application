@@ -12,7 +12,7 @@ function SidebarItem({ icon, label, active }) {
     );
 }
 
-function NavBar({ isTrueHandler }) {
+function NavBar({ isTrueHandler, items }) {
 
     const pageHandler = () => {
         isTrueHandler(false);
@@ -22,7 +22,7 @@ function NavBar({ isTrueHandler }) {
             {/* Main Content */}
             <div className="main-content">
 
-                <HeroPage />
+                <HeroPage items={items} />
                 {/* Top Menu */}
                 <div className="top-menu">
                     <div className="logo">PizzaHut</div> {/* Add the logo */}
