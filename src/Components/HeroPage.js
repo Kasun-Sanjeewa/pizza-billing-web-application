@@ -4,7 +4,7 @@ import Menu from './Menu';
 import Item from './Item'
 import './CSS/HeroPage.css'
 
-const HeroPage = ({ items }) => {
+const HeroPage = () => {
 
 
 
@@ -14,7 +14,7 @@ const HeroPage = ({ items }) => {
             <Menu className="abc" />
 
             <div className="items-section">
-                <Item items={items} />
+                <Item />
 
             </div>
             <div className="checkout-section">

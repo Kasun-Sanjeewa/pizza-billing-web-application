@@ -5,7 +5,6 @@ import NavBar from './Components/NavBar';
 
 function App() {
 
-  const [newItem, setNewItem] = useState([])
 
   // Initialize the state with value from localStorage
   const [isTrue, setIsTrue] = useState(() => {
@@ -22,19 +21,15 @@ function App() {
     setIsTrue(data); // Update the state
   };
 
-  const handleNewItem = (data) => {
-    setNewItem(data)
-  }
-
 
 
 
   return (
     <>
       {isTrue ? (
-        <NavBar isTrueHandler={isTrueHandler} items={newItem} />
+        <NavBar isTrueHandler={isTrueHandler} />
       ) : (
-        <ItemManagement isTrueHandler={isTrueHandler} handleNewItem={handleNewItem} />
+        <ItemManagement isTrueHandler={isTrueHandler} />
       )}
     </>
   );
