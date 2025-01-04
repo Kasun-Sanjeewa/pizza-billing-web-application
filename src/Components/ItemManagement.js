@@ -8,8 +8,23 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
         barcode: '',
         price: '', // Start with an empty string, not 0
         img: '',
+        category: '', // Add category to the state
     });
     const [editingItem, setEditingItem] = useState(null);
+
+    // Category options for the dropdown list
+    const categories = [
+        'Classic Pizzas',
+        'Meat Lovers',
+        'Vegetarian Pizzas',
+        'Gourmet Pizzas',
+        'Seafood Pizzas',
+        'White Pizzas',
+        'Specialty Pizzas',
+        'Calzone',
+        'Flatbread & Thin Crust Pizzas',
+        'Dessert Pizzas',
+    ];
 
     // Fetch items from the backend on component mount
     useEffect(() => {
@@ -33,7 +48,7 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
             price: newItem.price === '' ? 0 : Number(newItem.price), // Set price to 0 if empty
         };
 
-        if (itemToAdd.name && itemToAdd.barcode && itemToAdd.price && itemToAdd.img) {
+        if (itemToAdd.name && itemToAdd.barcode && itemToAdd.price && itemToAdd.img && itemToAdd.category) {
             try {
                 const response = await fetch('http://localhost:8080/products', {
                     method: 'POST',
@@ -45,7 +60,7 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
 
                 const addedItem = await response.json();
                 setItems([...items, addedItem]);
-                setNewItem({ name: '', barcode: '', price: '', img: '' });
+                setNewItem({ name: '', barcode: '', price: '', img: '', category: '' }); // Reset category after adding
             } catch (error) {
                 console.error('Error adding item:', error);
             }
@@ -127,6 +142,18 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
                     value={newItem.img}
                     onChange={(e) => setNewItem({ ...newItem, img: e.target.value })}
                 />
+
+                {/* Category Dropdown */}
+                <select
+                    value={newItem.category}
+                    onChange={(e) => setNewItem({ ...newItem, category: e.target.value })}
+                >
+                    <option value="">Select Category</option>
+                    {categories.map((category, index) => (
+                        <option key={index} value={category}>{category}</option>
+                    ))}
+                </select>
+
                 <button onClick={handleAddItem}>Add Item</button>
             </div>
 
@@ -155,6 +182,18 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
                                     value={editingItem.img}
                                     onChange={(e) => setEditingItem({ ...editingItem, img: e.target.value })}
                                 />
+
+                                {/* Category Dropdown for editing */}
+                                <select
+                                    value={editingItem.category}
+                                    onChange={(e) => setEditingItem({ ...editingItem, category: e.target.value })}
+                                    className=''
+                                >
+                                    {categories.map((category, index) => (
+                                        <option key={index} value={category}>{category}</option>
+                                    ))}
+                                </select>
+
                                 <button onClick={handleSaveItem}>Save</button>
                             </div>
                         ) : (
@@ -164,6 +203,7 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
                                     <h3 className="item-name">{item.name}</h3>
                                     <p className="item-barcode">Barcode: {item.barcode}</p>
                                     <p className="item-price">Price: LKR {item.price}</p>
+                                    <p className="item-category">Category: {item.category}</p> {/* Display category */}
                                 </div>
                                 <button onClick={() => handleEditItem(item)} className="edit-btn">Edit</button>
                                 <button onClick={() => handleDeleteItem(item.id)} className="delete-btn">Delete</button> {/* Use id for deletion */}
