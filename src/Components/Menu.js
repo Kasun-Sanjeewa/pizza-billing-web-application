@@ -1,8 +1,7 @@
-import React from 'react'
-import { useState } from 'react';
-import './CSS/Menu.css'
+import React, { useState } from 'react';
+import './CSS/Menu.css';
 
-export default function Menu() {
+export default function Menu({ onCategorySelect }) {
     const [selectedCategory, setSelectedCategory] = useState('All Items');
 
     const categories = [
@@ -19,6 +18,12 @@ export default function Menu() {
         'Dessert Pizzas',
         'Seafood Delight',
     ];
+
+    const handleCategoryClick = (category) => {
+        setSelectedCategory(category);
+        onCategorySelect(category); // Notify parent about the selected category
+    };
+
     return (
         <div className="menu-section">
             <h2 className='filter-text'>Filter</h2>
@@ -26,11 +31,11 @@ export default function Menu() {
                 <button
                     key={category}
                     className={selectedCategory === category ? 'active-category' : ''}
-                    onClick={() => setSelectedCategory(category)}
+                    onClick={() => handleCategoryClick(category)}
                 >
                     {category}
                 </button>
             ))}
         </div>
-    )
+    );
 }

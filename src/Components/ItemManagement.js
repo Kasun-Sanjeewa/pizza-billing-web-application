@@ -159,7 +159,7 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
 
             <div className="items-section">
                 {items.map((item) => (
-                    <div className="item-card" key={item.id}> {/* Use id for the key */}
+                    <div className="item-card-management" key={item.id}> {/* Use id for the key */}
                         {editingItem?.id === item.id ? ( // Use id for comparison
                             <div className="edit-item-form">
                                 <input

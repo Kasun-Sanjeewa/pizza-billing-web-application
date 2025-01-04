@@ -1,21 +1,16 @@
-
-import Checkout from './Checkout';
+import React, { useState } from 'react';
 import Menu from './Menu';
-import Item from './Item'
-import './CSS/HeroPage.css'
+import Item from './Item';
+import Checkout from './Checkout';
+import './CSS/HeroPage.css';
 
 const HeroPage = () => {
-
-
-
-
+    const [selectedCategory, setSelectedCategory] = useState('All Items');
     return (
         <div className="container">
-            <Menu className="abc" />
-
+            <Menu onCategorySelect={(category) => setSelectedCategory(category)} />
             <div className="items-section">
-                <Item />
-
+                <Item selectedCategory={selectedCategory} />
             </div>
             <div className="checkout-section">
                 <Checkout />

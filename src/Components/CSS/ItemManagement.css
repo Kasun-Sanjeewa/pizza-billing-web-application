@@ -43,13 +43,18 @@ h2 {
     gap: 20px;
 }
 
-.item-card {
-    width: 220px;
-    border: 1px solid #ccc;
+.item-card-management {
+    width: 230px;
     padding: 10px;
-    border-radius: 5px;
-    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .item-details h3 {
