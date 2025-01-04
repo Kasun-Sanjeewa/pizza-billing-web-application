@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import JsBarcode from 'jsbarcode';
 import './CSS/Item.css';
 
-const Item = ({ selectedCategory }) => {
+const Item = ({ selectedCategory, addItemToCheckout }) => {
     const [items, setItems] = useState([]);
     const [filteredItems, setFilteredItems] = useState([]);
     const [errorMessage, setErrorMessage] = useState('');
@@ -66,13 +66,21 @@ const Item = ({ selectedCategory }) => {
         });
     }, [filteredItems]);
 
+    const handleItemClick = (item) => {
+        addItemToCheckout(item); // Add the item to checkout when clicked
+    };
+
     return (
         <div className="items-section">
             {errorMessage ? (
                 <p className="error-message">{errorMessage}</p>
             ) : (
                 filteredItems.map((item, index) => (
-                    <div className="item-card" key={item.barcode}>
+                    <div
+                        className="item-card"
+                        key={item.barcode}
+                        onClick={() => handleItemClick(item)} // Handle item click
+                    >
                         <img src={item.img} alt={item.name} className="item-image" />
                         <div className="item-name">{item.name}</div>
                         <svg

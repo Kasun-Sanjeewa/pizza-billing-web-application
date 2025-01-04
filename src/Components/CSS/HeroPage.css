@@ -17,7 +17,7 @@
     justify-content: center;
     border-radius: 10px;
     text-align: center;
-    height: 800px;
+    height: auto
 }
 
 /* Hide menu-section on mobile */

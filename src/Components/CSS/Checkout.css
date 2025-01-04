@@ -1,98 +1,164 @@
-.chechout-text {
-    margin-bottom: 55px;
+.checkout-section {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 700px;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+    height: auto;
 }
 
-.checkout-section .checkout-details {
-    margin-bottom: 480px;
+.checkout-section h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
 }
 
-.checkout-section button {
+.center-line {
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 15px;
+}
+
+.checkout-details {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 30px;
+    padding: 0 20px;
+
+}
+
+.checkout-text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+}
+
+.checkout-text-payable {
     display: block;
-    width: 80%;
-    padding: 10px;
-    margin: auto;
+    font-size: 20px;
+    justify-content: space-between;
+    margin-top: 50px;
+    font-weight: bold;
+    border: 2px solid #ddd;
+    padding-bottom: 15px;
+    padding-top: 15px;
+}
+
+.checkout-text span {
+    font-weight: bold;
+}
+
+.selected-items {
+    margin-bottom: 30px;
+}
+
+.selected-items h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.selected-items ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.selected-items li {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+    display: block;
+    justify-content: space-between;
+    align-items: center;
+    background-color: bisque;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.proceed-button {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #28a745;
     border: none;
-    color: #fff;
+    border-radius: 4px;
     cursor: pointer;
-    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
 }
 
-.checkout-section .hold-button {
-    background: #f0ad4e;
+.proceed-button:hover {
+    background-color: #218838;
 }
 
-.checkout-section .proceed-button {
-    background: #5cb85c;
-}
-
-/* Small Devices (Mobile) */
-@media (max-width: 576px) {
-    .chechout-text {
-        margin-bottom: 30px;
+/* Add styles for printing */
+@media print {
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
     }
 
-    .checkout-section .checkout-details {
-        margin-bottom: 250px;
+    .checkout-section {
+        max-width: 100%;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 20px;
     }
 
-    .checkout-section button {
-        width: 90%;
-        padding: 12px;
+    .checkout-text,
+    .selected-items li {
+        font-size: 14px;
     }
 
-    .checkout-section .hold-button {
-        background: #f0ad4e;
+    .proceed-button {
+        display: none;
+        /* Hide the proceed button when printing */
     }
 
-    .checkout-section .proceed-button {
-        background: #5cb85c;
-    }
-}
-
-/* Medium Devices (Tablets) */
-@media (max-width: 768px) {
-    .chechout-text {
-        margin-bottom: 40px;
+    .selected-items {
+        margin-bottom: 20px;
     }
 
-    .checkout-section .checkout-details {
-        margin-bottom: 350px;
+    .selected-items ul {
+        padding-left: 0;
     }
 
-    .checkout-section button {
-        width: 85%;
-        padding: 12px;
+    .selected-items li {
+        padding: 5px 0;
+        border-bottom: 1px solid #ddd;
     }
 
-    .checkout-section .hold-button {
-        background: #f0ad4e;
+    .selected-items li:last-child {
+        border-bottom: none;
     }
 
-    .checkout-section .proceed-button {
-        background: #5cb85c;
-    }
-}
-
-/* Large Devices (Desktops and Above) */
-@media (min-width: 1200px) {
-    .chechout-text {
-        margin-bottom: 55px;
+    .checkout-details {
+        padding: 0;
+        margin-bottom: 20px;
     }
 
-    .checkout-section .checkout-details {
-        margin-bottom: 480px;
+    .checkout-text {
+        font-size: 14px;
     }
 
-    .checkout-section button {
-        width: 80%;
-        padding: 10px;
+    .checkout-text span {
+        font-size: 14px;
     }
 
-    .checkout-section .hold-button {
-        background: #f0ad4e;
-    }
-
-    .checkout-section .proceed-button {
-        background: #5cb85c;
+    h2 {
+        font-size: 24px;
     }
 }
