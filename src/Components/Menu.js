@@ -14,7 +14,7 @@ export default function Menu({ onCategorySelect }) {
         'White Pizzas',
         'Specialty Pizzas',
         'Calzone',
-        'Flatbread & Thin Crust Pizzas',
+        'Thin Crust Pizzas',
         'Dessert Pizzas',
         'Seafood Delight',
     ];

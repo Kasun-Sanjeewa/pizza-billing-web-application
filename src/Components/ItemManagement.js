@@ -22,7 +22,7 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
         'White Pizzas',
         'Specialty Pizzas',
         'Calzone',
-        'Flatbread & Thin Crust Pizzas',
+        'Thin Crust Pizzas',
         'Dessert Pizzas',
     ];
 
