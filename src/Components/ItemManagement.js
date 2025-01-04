@@ -58,7 +58,7 @@ const ItemManagement = ({ isTrueHandler, items: propItems }) => {
                     onChange={(e) => setNewItem({ ...newItem, barcode: e.target.value })}
                 />
                 <input
-                    type="number"
+                    type="text"
                     placeholder="Price"
                     value={newItem.price}
                     onChange={(e) => setNewItem({ ...newItem, price: e.target.value })}
