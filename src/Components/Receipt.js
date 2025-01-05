@@ -1,7 +1,7 @@
 import React from 'react';
 import './CSS/Receipt.css'; // Add CSS for styling
 
-const Invoice = () => {
+const Invoice = ({ receiptNumber, invoiceNumber, customer, date, cashier, items, total, tax, payable }) => {
     return (
         <div className="page-wrapper">
             <div className="invoice-container">
@@ -9,7 +9,7 @@ const Invoice = () => {
                     <div className="logo">
                         <img src="https://st2.depositphotos.com/16030310/43110/v/450/depositphotos_431105180-stock-illustration-initial-letter-logotype-company-name.jpg" alt="Restaurant Logo" className="logo-img" />
                     </div>
-                    <h2>Restaurant</h2>
+                    <h2 className='hiiii'>Restaurant</h2>
                     <p>Slogan Here</p>
                 </div>
 
@@ -22,11 +22,11 @@ const Invoice = () => {
                 <hr />
 
                 <div className="receipt-info">
-                    <p><strong>Receipt #: </strong>REC0203</p>
-                    <p><strong>Invoice #: </strong>INV0189</p>
-                    <p><strong>Customer: </strong>Walking Customer</p>
-                    <p><strong>Date: </strong>2025-01-05 20:06:20</p>
-                    <p><strong>Cashier: </strong>Thilina Ruwan</p>
+                    <p><strong>Receipt #: </strong>{receiptNumber}</p>
+                    <p><strong>Invoice #: </strong>{invoiceNumber}</p>
+                    <p><strong>Customer: </strong>{customer}</p>
+                    <p><strong>Date: </strong>{date}</p>
+                    <p><strong>Cashier: </strong>{cashier}</p>
                 </div>
 
                 <hr />
@@ -40,9 +40,23 @@ const Invoice = () => {
                             </tr>
                         </thead>
                         <tbody>
+                            {items.map((item, index) => (
+                                <tr key={index}>
+                                    <td>{item.name}</td>
+                                    <td>{item.quantity} x {item.price.toFixed(2)}</td>
+                                </tr>
+                            ))}
                             <tr>
-                                <td>Cash</td>
-                                <td>750.00</td>
+                                <td><strong>Total</strong></td>
+                                <td>{total.toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tax (10%)</strong></td>
+                                <td>{tax.toFixed(2)}</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Payable</strong></td>
+                                <td>{payable.toFixed(2)}</td>
                             </tr>
                         </tbody>
                     </table>
