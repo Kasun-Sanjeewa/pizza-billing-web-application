@@ -114,36 +114,22 @@
     font-size: 0.875rem;
 }
 
-.btn.return {
-    background-color: #ffc107;
-    color: white;
-}
-
 .btn.full {
     background-color: #6c757d;
     color: white;
 }
 
-.btn.expenses {
-    background-color: #198754;
-    color: white;
-}
 
-.btn.customer {
-    background-color: #0d6efd;
-    color: white;
-}
 
 
 .btn.down,
-.btn.up,
-.btn.select-table {
-    background-color: transparent;
-    color: #6c757d;
+.btn.up {
+    padding: 10px 25px;
+    background-color: bisque;
 }
 
 .btn.new {
-    background-color: #fd7e14;
+    background-color: #0d6efd;
     color: white;
 }
 
