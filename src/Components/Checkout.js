@@ -108,9 +108,9 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
         root.render(
             <Invoice
                 invoiceNumber={invoiceNumber}
-                customer="Walking Customer"
+                customer="New Customer"
                 date={new Date().toLocaleString()}
-                cashier="Thilina Ruwan"
+                cashier="Kasun Sanjeewa"
                 items={selectedItems}
                 total={parseFloat(totalAmount)}
                 tax={parseFloat(taxAmount)}
@@ -135,7 +135,7 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
                 <ul>
                     {selectedItems.map((item, index) => (
                         <li key={index} className="select-list">
-                            {item.name} - LKR {item.price.toFixed(2)} x {item.quantity}
+                            <i className="fa-solid fa-check" /> {item.name} - LKR {item.price.toFixed(2)} x {item.quantity}
                         </li>
                     ))}
                 </ul>
@@ -143,7 +143,7 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
             <div className="checkout-details">
                 <div className="checkout-text">Total: LKR {totalAmount}</div>
                 <div className="checkout-text">Tax (10%): LKR {taxAmount}</div>
-                <div className="checkout-text-payable">Payable: LKR {payableAmount}</div>
+                <div className="checkout-text-payable"><i className="fa-solid fa-money-bill" />Payable: LKR {payableAmount}</div>
             </div>
             <button className="proceed-button" onClick={handleCheckout}>
                 Checkout

@@ -72,7 +72,6 @@ const Invoice = ({ invoiceNumber, customer, date, cashier, items, total, tax, pa
                         />
                     </div>
                     <h2>Restaurant</h2>
-                    <p>Slogan Here</p>
                 </div>
 
                 <div style={styles.contactInfo}>
@@ -119,7 +118,7 @@ const Invoice = ({ invoiceNumber, customer, date, cashier, items, total, tax, pa
                             </tr>
                             <tr>
                                 <td style={styles.tableCell}><strong>Payable</strong></td>
-                                <td style={styles.tableCell}>{payable.toFixed(2)}</td>
+                                <td style={styles.tableCell}><strong>{payable.toFixed(2)}</strong></td>
                             </tr>
                         </tbody>
                     </table>
@@ -129,9 +128,9 @@ const Invoice = ({ invoiceNumber, customer, date, cashier, items, total, tax, pa
 
                 <div style={styles.footer}>
                     <p>Thank You..! Come Again</p>
-                    <p>Software by UniERP</p>
+                    <p>Software by KSSoftware</p>
                     <p>One Solution for Everything</p>
-                    <p>0770481363 | www.unierp.com</p>
+                    <p>0783099142 | www.ksgroup.com</p>
                 </div>
             </div>
         </div>

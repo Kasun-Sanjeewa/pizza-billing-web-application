@@ -66,8 +66,8 @@ function NavBar({ isTrueHandler }) {
                             <i className="fa-solid fa-arrows-up-to-line" />
                             <p>Up</p>
                         </button>
-                        <button className="btn full" onClick={toggleFullScreen}><i class="fa-solid fa-expand" />Full</button>
-                        <button className="btn new" onClick={refreshPage}><i class="fa-solid fa-arrows-rotate" />New</button>
+                        <button className="btn full" onClick={toggleFullScreen}><i className="fa-solid fa-expand" />Full</button>
+                        <button className="btn new" onClick={refreshPage}><i className="fa-solid fa-arrows-rotate" />New</button>
                     </div>
                 </div>
 

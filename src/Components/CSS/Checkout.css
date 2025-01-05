@@ -48,6 +48,10 @@
     padding-top: 15px;
 }
 
+.checkout-text-payable>i {
+    margin-right: 15px;
+}
+
 .checkout-text span {
     font-weight: bold;
 }
