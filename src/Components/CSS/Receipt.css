@@ -1,66 +1,85 @@
-.invoice-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+/* Wrapper for centering */
+.page-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    background-color: #f8f8f8;
+    margin-top: 50px;
+    /* Optional background */
 }
 
-.invoice-container h1 {
+.invoice-container {
+    width: 400px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    height: auto;
+    /* White background */
+}
+
+.header {
     text-align: center;
 }
 
-.invoice-form input {
-    margin: 5px;
-    padding: 10px;
+.logo-img {
+    margin-bottom: 10px;
+}
+
+.logo>img {
     width: 150px;
 }
 
-.invoice-form button {
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    color: white;
+.contact-info {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.contact-info>P {
+    margin-bottom: 8px;
+}
+
+hr {
     border: none;
-    cursor: pointer;
+    border-top: 1px solid #ccc;
+    margin: 15px 0;
 }
 
-.invoice-form button:hover {
-    background-color: #45a049;
-}
-
-.invoice-items {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-}
-
-.invoice-items th,
-.invoice-items td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd;
-}
-
-.invoice-items th {
-    background-color: #f2f2f2;
-}
-
-.invoice-summary {
-    margin-top: 20px;
+.receipt-info {
+    margin-bottom: 15px;
     font-size: 18px;
 }
 
-.print-button {
-    padding: 10px 20px;
-    background-color: #2196F3;
-    color: white;
-    border: none;
-    cursor: pointer;
-    margin-top: 20px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.receipt-info>P {
+    margin-bottom: 10px;
 }
 
-.print-button:hover {
-    background-color: #0b7dda;
+.payment-info table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.payment-info th,
+.payment-info td {
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    padding: 5px;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+
+.footer>P {
+    margin-bottom: 6px;
 }
