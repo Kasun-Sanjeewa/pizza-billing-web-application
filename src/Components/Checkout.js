@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './CSS/Checkout.css';
 import Invoice from './Receipt';
-import ReactDOM from 'react-dom/client';  // Import from 'react-dom/client'
+import ReactDOM from 'react-dom/client';
 
 export default function Checkout({ selectedItems, onCheckoutComplete }) {
+    const [paymentData, setPaymentData] = useState(null);
     const TAX_RATE = 0.1; // 10% tax
+
+    // Fetch payment data when the component mounts or when needed
+    useEffect(() => {
+        const fetchPaymentData = async () => {
+            try {
+                const response = await fetch("http://localhost:8080/payments");
+                if (response.ok) {
+                    const data = await response.json();
+                    setPaymentData(data); // Store the payment data in state
+                } else {
+                    console.error("Failed to fetch payment data");
+                    alert("Failed to fetch payment data");
+                }
+            } catch (err) {
+                console.error("Error fetching payment data:", err);
+                alert("Error fetching payment data");
+            }
+        };
+
+        fetchPaymentData(); // Fetch payment data on component mount
+    }, []); // Empty dependency array ensures this runs only once when the component mounts
 
     // Calculate the total and tax
     const totalAmount = selectedItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
@@ -18,6 +40,20 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
             return; // Exit the function
         }
 
+        // Ensure payment data has been fetched
+        if (!paymentData || paymentData.length === 0) {
+            alert("No payment data found to generate invoice number.");
+            return;
+        }
+
+        // Get the largest payment ID from the fetched data and create the invoice number
+        const latestPaymentId = paymentData.reduce((max, payment) => {
+            return payment.id > max ? payment.id : max;
+        }, 0);
+
+        // Create invoice number by incrementing the latest payment ID by 1
+        const newInvoiceNumber = "ENV" + (latestPaymentId + 1);
+
         // Prepare the data for the backend
         const checkoutData = {
             selected_items: JSON.stringify(
@@ -30,6 +66,7 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
             total: parseFloat(totalAmount),
             tax: parseFloat(taxAmount),
             payable: parseFloat(payableAmount),
+            invoiceNumber: newInvoiceNumber, // Include the generated invoice number
         };
 
         try {
@@ -46,8 +83,8 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
                 alert("Checkout successful!");
                 onCheckoutComplete(); // Clear checkout data
 
-                // Open invoice in a new tab
-                handleCheckoutPrint();
+                // Open the Invoice in a new tab
+                handleCheckoutPrint(newInvoiceNumber); // Now call print with the generated invoice number
             } else {
                 const error = await response.text();
                 alert("Checkout failed: " + error);
@@ -57,60 +94,37 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
         }
     };
 
-    const handleCheckoutPrint = async () => {
+    const handleCheckoutPrint = (invoiceNumber) => {
         if (selectedItems.length === 0) {
             alert("No items selected. Please add items to checkout.");
             return;
         }
 
-        try {
-            const response = await fetch("http://localhost:8080/checkout", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    selected_items: JSON.stringify(selectedItems), // stringified here
-                    total: parseFloat(totalAmount), // send as float
-                    tax: parseFloat(taxAmount), // send as float
-                    payable: parseFloat(payableAmount), // send as float
-                }),
-            });
+        // Open the Invoice component in a new tab
+        const newTab = window.open("", "_blank");
 
-            if (response.ok) {
-                onCheckoutComplete();
+        // Use `createRoot` instead of `render`
+        const root = ReactDOM.createRoot(newTab.document.body);  // Create root
+        root.render(
+            <Invoice
+                invoiceNumber={invoiceNumber}
+                customer="Walking Customer"
+                date={new Date().toLocaleString()}
+                cashier="Thilina Ruwan"
+                items={selectedItems}
+                total={parseFloat(totalAmount)}
+                tax={parseFloat(taxAmount)}
+                payable={parseFloat(payableAmount)}
+            />
+        );
 
-                // Open the Invoice component in a new tab
-                const newTab = window.open("", "_blank");
-
-                // Use `createRoot` instead of `render`
-                const root = ReactDOM.createRoot(newTab.document.body);  // Create root
-                root.render(
-                    <Invoice
-                        receiptNumber="REC0203"
-                        invoiceNumber="INV0189"
-                        customer="Walking Customer"
-                        date={new Date().toLocaleString()}
-                        cashier="Thilina Ruwan"
-                        items={selectedItems}
-                        total={parseFloat(totalAmount)}
-                        tax={parseFloat(taxAmount)}
-                        payable={parseFloat(payableAmount)}
-                    />
-                );
-
-                // Wait for the new tab to load, then trigger the print for the invoice
-                newTab.onload = () => {
-                    // Now, in the new tab, we only print the invoice
-                    newTab.print();
-                    // Close the new tab after printing to avoid keeping an empty tab open
-                    newTab.close();
-                };
-            } else {
-                const error = await response.text();
-                alert("Checkout failed: " + error);
-            }
-        } catch (err) {
-            alert("Error during checkout: " + err.message);
-        }
+        // Wait for the new tab to load, then trigger the print for the invoice
+        newTab.onload = () => {
+            // Now, in the new tab, we only print the invoice
+            newTab.print();
+            // Close the new tab after printing to avoid keeping an empty tab open
+            newTab.close();
+        };
     };
 
     return (

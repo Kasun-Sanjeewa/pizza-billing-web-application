@@ -1,5 +1,5 @@
 
-const Invoice = ({ receiptNumber, invoiceNumber, customer, date, cashier, items, total, tax, payable }) => {
+const Invoice = ({ invoiceNumber, customer, date, cashier, items, total, tax, payable }) => {
 
 
     const styles = {
@@ -84,7 +84,6 @@ const Invoice = ({ receiptNumber, invoiceNumber, customer, date, cashier, items,
                 <hr style={styles.hr} />
 
                 <div style={styles.receiptInfo}>
-                    <p><strong>Receipt #: </strong>{receiptNumber}</p>
                     <p><strong>Invoice #: </strong>{invoiceNumber}</p>
                     <p><strong>Customer: </strong>{customer}</p>
                     <p><strong>Date: </strong>{date}</p>
