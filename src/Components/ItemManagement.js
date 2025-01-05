@@ -6,13 +6,12 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
     const [newItem, setNewItem] = useState({
         name: '',
         barcode: '',
-        price: '', // Start with an empty string, not 0
+        price: '',
         img: '',
-        category: '', // Add category to the state
+        category: '',
     });
     const [editingItem, setEditingItem] = useState(null);
 
-    // Category options for the dropdown list
     const categories = [
         'Classic Pizzas',
         'Meat Lovers',
@@ -26,7 +25,6 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
         'Dessert Pizzas',
     ];
 
-    // Fetch items from the backend on component mount
     useEffect(() => {
         const fetchItems = async () => {
             try {
@@ -40,12 +38,10 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
         fetchItems();
     }, []);
 
-    // Handle adding a new item
     const handleAddItem = async () => {
-        // Ensure price is not an empty string when adding a new item
         const itemToAdd = {
             ...newItem,
-            price: newItem.price === '' ? 0 : Number(newItem.price), // Set price to 0 if empty
+            price: newItem.price === '' ? 0 : Number(newItem.price),
         };
 
         if (itemToAdd.name && itemToAdd.barcode && itemToAdd.price && itemToAdd.img && itemToAdd.category) {
@@ -60,36 +56,37 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
 
                 const addedItem = await response.json();
                 setItems([...items, addedItem]);
-                setNewItem({ name: '', barcode: '', price: '', img: '', category: '' }); // Reset category after adding
+                setNewItem({ name: '', barcode: '', price: '', img: '', category: '' });
             } catch (error) {
                 console.error('Error adding item:', error);
             }
         }
     };
 
-    // Handle deleting an item by ID
     const handleDeleteItem = async (id) => {
-        try {
-            await fetch(`http://localhost:8080/products/${id}`, {
-                method: 'DELETE',
-            });
+        const confirmDelete = window.confirm('Are you sure you want to delete this item?');
+        if (confirmDelete) {
+            try {
+                await fetch(`http://localhost:8080/products/${id}`, {
+                    method: 'DELETE',
+                });
 
-            setItems(items.filter((item) => item.id !== id)); // Use id for filtering
-        } catch (error) {
-            console.error('Error deleting item:', error);
+                setItems(items.filter((item) => item.id !== id));
+                alert('Item deleted successfully.');
+            } catch (error) {
+                console.error('Error deleting item:', error);
+            }
         }
     };
 
-    // Handle editing an item
     const handleEditItem = (item) => {
-        setEditingItem({ ...item }); // Ensure that you're copying the item state, not modifying it directly
+        setEditingItem({ ...item });
     };
 
-    // Handle saving an edited item
     const handleSaveItem = async () => {
         const updatedItem = {
             ...editingItem,
-            price: Number(editingItem.price), // Ensure price is a number
+            price: Number(editingItem.price),
         };
 
         try {
@@ -104,12 +101,12 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
             const savedItem = await response.json();
             setItems(items.map((item) => (item.id === savedItem.id ? savedItem : item)));
             setEditingItem(null);
+            alert('Item updated successfully.');
         } catch (error) {
             console.error('Error saving item:', error);
         }
     };
 
-    // Navigate back to the home page
     const goBackToNavBar = () => {
         isTrueHandler(true);
     };
@@ -142,8 +139,6 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
                     value={newItem.img}
                     onChange={(e) => setNewItem({ ...newItem, img: e.target.value })}
                 />
-
-                {/* Category Dropdown */}
                 <select
                     value={newItem.category}
                     onChange={(e) => setNewItem({ ...newItem, category: e.target.value })}
@@ -153,14 +148,13 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
                         <option key={index} value={category}>{category}</option>
                     ))}
                 </select>
-
                 <button onClick={handleAddItem}>Add Item</button>
             </div>
 
             <div className="items-section">
                 {items.map((item) => (
-                    <div className="item-card-management" key={item.id}> {/* Use id for the key */}
-                        {editingItem?.id === item.id ? ( // Use id for comparison
+                    <div className="item-card-management" key={item.id}>
+                        {editingItem?.id === item.id ? (
                             <div className="edit-item-form">
                                 <input
                                     type="text"
@@ -182,18 +176,14 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
                                     value={editingItem.img}
                                     onChange={(e) => setEditingItem({ ...editingItem, img: e.target.value })}
                                 />
-
-                                {/* Category Dropdown for editing */}
                                 <select
                                     value={editingItem.category}
                                     onChange={(e) => setEditingItem({ ...editingItem, category: e.target.value })}
-                                    className=''
                                 >
                                     {categories.map((category, index) => (
                                         <option key={index} value={category}>{category}</option>
                                     ))}
                                 </select>
-
                                 <button onClick={handleSaveItem}>Save</button>
                             </div>
                         ) : (
@@ -203,10 +193,10 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
                                     <h3 className="item-name">{item.name}</h3>
                                     <p className="item-barcode">Barcode: {item.barcode}</p>
                                     <p className="item-price">Price: LKR {item.price}</p>
-                                    <p className="item-category">Category: {item.category}</p> {/* Display category */}
+                                    <p className="item-category">Category: {item.category}</p>
                                 </div>
                                 <button onClick={() => handleEditItem(item)} className="edit-btn">Edit</button>
-                                <button onClick={() => handleDeleteItem(item.id)} className="delete-btn">Delete</button> {/* Use id for deletion */}
+                                <button onClick={() => handleDeleteItem(item.id)} className="delete-btn">Delete</button>
                             </>
                         )}
                     </div>
