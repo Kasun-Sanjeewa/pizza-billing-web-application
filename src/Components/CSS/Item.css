@@ -69,6 +69,16 @@
     height: 50px;
 }
 
+.error-message {
+    padding: 20px 250px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 20px;
+    font-weight: bold;
+    margin-top: 40%;
+}
+
 /* Small Devices (Mobile) */
 @media (max-width: 600px) {
     .items-section {
