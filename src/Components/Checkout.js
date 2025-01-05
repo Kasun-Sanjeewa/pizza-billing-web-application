@@ -81,10 +81,9 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
                 // Open the Invoice component in a new tab
                 const newTab = window.open("", "_blank");
 
-
                 // Use `createRoot` instead of `render`
                 const root = ReactDOM.createRoot(newTab.document.body);  // Create root
-                root.render(  // Mount the component
+                root.render(
                     <Invoice
                         receiptNumber="REC0203"
                         invoiceNumber="INV0189"
@@ -96,8 +95,15 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
                         tax={parseFloat(taxAmount)}
                         payable={parseFloat(payableAmount)}
                     />
-
                 );
+
+                // Wait for the new tab to load, then trigger the print for the invoice
+                newTab.onload = () => {
+                    // Now, in the new tab, we only print the invoice
+                    newTab.print();
+                    // Close the new tab after printing to avoid keeping an empty tab open
+                    newTab.close();
+                };
             } else {
                 const error = await response.text();
                 alert("Checkout failed: " + error);
