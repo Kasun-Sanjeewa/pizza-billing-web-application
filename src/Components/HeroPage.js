@@ -30,9 +30,9 @@ const HeroPage = () => {
     return (
         <div className="container">
             <Menu onCategorySelect={(category) => setSelectedCategory(category)} />
-            <div className="items-section">
-                <Item selectedCategory={selectedCategory} addItemToCheckout={addItemToCheckout} />
-            </div>
+
+            <Item selectedCategory={selectedCategory} addItemToCheckout={addItemToCheckout} />
+
             <div className="checkout-section">
                 <Checkout selectedItems={selectedItems} onCheckoutComplete={clearCheckout} />
             </div>

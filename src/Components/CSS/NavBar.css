@@ -67,9 +67,9 @@
     z-index: 1000;
     border: 1px solid #dee2e6;
     margin-left: 5px;
-    height: 720px;
+    height: 670px;
     border-radius: 4px;
-
+    margin-top: 20px;
     /* Ensure it's above the content */
 }
 
@@ -115,7 +115,7 @@
 }
 
 .btn.full {
-    background-color: #6c757d;
+    background-color: #38cc0b;
     color: white;
 }
 

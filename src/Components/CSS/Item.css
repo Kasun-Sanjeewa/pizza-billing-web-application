@@ -1,5 +1,5 @@
 .items-section {
-    width: 80%;
+    width: 100%;
     padding: 10px;
     display: flex;
     flex-wrap: wrap;
@@ -9,6 +9,7 @@
     gap: 30px;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 8px;
 }
 
 .item-card {
