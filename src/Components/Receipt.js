@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Invoice = ({ receiptNumber, invoiceNumber, customer, date, cashier, items, total, tax, payable }) => {
+
     const styles = {
         pageWrapper: {
             display: 'flex',
@@ -58,6 +59,7 @@ const Invoice = ({ receiptNumber, invoiceNumber, customer, date, cashier, items,
             fontWeight: 'bold',
         },
     };
+
 
     return (
         <div style={styles.pageWrapper}>

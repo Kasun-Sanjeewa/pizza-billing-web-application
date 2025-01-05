@@ -76,11 +76,11 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
             });
 
             if (response.ok) {
-                alert("Checkout successful!");
                 onCheckoutComplete();
 
                 // Open the Invoice component in a new tab
                 const newTab = window.open("", "_blank");
+
 
                 // Use `createRoot` instead of `render`
                 const root = ReactDOM.createRoot(newTab.document.body);  // Create root
@@ -96,6 +96,7 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
                         tax={parseFloat(taxAmount)}
                         payable={parseFloat(payableAmount)}
                     />
+
                 );
             } else {
                 const error = await response.text();
