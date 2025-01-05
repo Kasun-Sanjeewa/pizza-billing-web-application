@@ -39,6 +39,16 @@ function NavBar({ isTrueHandler }) {
         window.location.reload(); // Reload the page
     };
 
+    // Scroll the page up
+    const scrollUp = () => {
+        window.scrollBy({ top: -100, behavior: 'smooth' }); // Scroll up by 100px
+    };
+
+    // Scroll the page down
+    const scrollDown = () => {
+        window.scrollBy({ top: 100, behavior: 'smooth' }); // Scroll down by 100px
+    };
+
     return (
         <div className="app">
             {/* Main Content */}
@@ -48,11 +58,11 @@ function NavBar({ isTrueHandler }) {
                 <div className="top-menu">
                     <div className="logo">PizzaHut</div> {/* Add the logo */}
                     <div className="top-menu-items">
-                        <button className="btn down">
+                        <button className="btn down" onClick={scrollDown}>
                             <i className="fa-solid fa-arrows-down-to-line" />
                             <p>Down</p>
                         </button>
-                        <button className="btn up">
+                        <button className="btn up" onClick={scrollUp}>
                             <i className="fa-solid fa-arrows-up-to-line" />
                             <p>Up</p>
                         </button>
