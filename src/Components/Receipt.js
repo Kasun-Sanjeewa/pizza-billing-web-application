@@ -1,17 +1,17 @@
 
 const Invoice = ({ invoiceNumber, customer, date, cashier, items, total, tax, payable }) => {
 
-
+    // Define styles as a JavaScript object for inline styling
     const styles = {
         pageWrapper: {
-            display: 'flex',
+            display: 'flex',  // Center content horizontally and vertically
             alignItems: 'center',
             justifyContent: 'center',
             height: 'auto',
-            transform: 'scale(0.8)',
+            transform: 'scale(0.8)', // Scale the entire component to 80%
         },
         invoiceContainer: {
-            width: '400px',
+            width: '400px', // Set a fixed width for the invoice container
             fontFamily: 'Arial, sans-serif',
             fontSize: '14px',
             color: '#333',
@@ -35,7 +35,7 @@ const Invoice = ({ invoiceNumber, customer, date, cashier, items, total, tax, pa
             marginBottom: '10px',
         },
         hr: {
-            border: 'none',
+            border: 'none', // Remove default border styling
             borderTop: '1px solid #ccc',
             margin: '15px 0',
         },
@@ -45,7 +45,7 @@ const Invoice = ({ invoiceNumber, customer, date, cashier, items, total, tax, pa
         },
         paymentTable: {
             width: '100%',
-            borderCollapse: 'collapse',
+            borderCollapse: 'collapse', // Remove space between borders
         },
         tableCell: {
             textAlign: 'left',
@@ -60,6 +60,7 @@ const Invoice = ({ invoiceNumber, customer, date, cashier, items, total, tax, pa
         },
     };
 
+    // Render the Invoice component
     return (
         <div style={styles.pageWrapper}>
             <div style={styles.invoiceContainer}>
