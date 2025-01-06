@@ -84,21 +84,15 @@
 @media (max-width: 600px) {
     .items-section {
         width: 100%;
-        /* Full width on small screens */
         padding: 5px;
-        /* Reduce padding */
         gap: 15px;
-        /* Reduce gap between items */
         flex-wrap: wrap;
     }
 
     .item-card {
         width: 90%;
-        /* Expand card to almost full width */
         padding: 8px;
-        /* Reduce padding */
         border-radius: 12px;
-        /* Smaller border radius for compact look */
     }
 
     .item-image {
@@ -123,19 +117,14 @@
 @media (max-width: 768px) {
     .items-section {
         width: 300px;
-        /* Slightly narrower than desktops */
         padding: 8px;
-        /* Moderate padding */
         gap: 20px;
-        /* Moderate gap */
         margin-top: 150px;
     }
 
     .item-card {
         width: 75%;
-        /* Two items per row on medium screens */
         padding: 10px;
-        /* Standard padding */
         border-radius: 15px;
     }
 
@@ -160,9 +149,7 @@
 @media (min-width: 1200px) {
     .items-section {
         width: 80%;
-        /* Default width */
         gap: 30px;
-        /* Maintain spacious layout */
     }
 
 

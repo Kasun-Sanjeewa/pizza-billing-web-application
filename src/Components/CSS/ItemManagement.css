@@ -163,41 +163,28 @@ button:hover {
 
 /* Style for the category dropdown input */
 .add-item-form select {
-
-    /* Make it fill the available width */
     padding: 10px 12px;
-    /* Add padding for a better appearance */
     margin: 10px 0;
-    /* Space between inputs */
     border: 1px solid #ccc;
-    /* Border color */
     border-radius: 4px;
-    /* Rounded corners */
     font-size: 16px;
-    /* Font size */
     background-color: #fff;
-    /* Background color */
     color: #333;
-    /* Text color */
     transition: border-color 0.3s ease;
     /* Smooth border color transition */
 }
 
 .add-item-form select:focus {
     border-color: #007bff;
-    /* Change border color on focus */
     outline: none;
     /* Remove default outline */
 }
 
 .add-item-form select option {
     padding: 10px;
-    /* Padding for options */
     font-size: 16px;
-    /* Font size for options */
 }
 
-/* Optional: Add some spacing between form elements */
 
 
 /* For better appearance of the button */

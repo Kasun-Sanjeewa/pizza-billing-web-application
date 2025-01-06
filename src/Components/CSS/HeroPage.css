@@ -37,7 +37,6 @@
         height: auto;
         /* Adjust height based on content */
         padding: 10px;
-        /* Add padding for better layout on smaller screens */
         margin-left: 40px;
     }
 
@@ -45,11 +44,8 @@
         width: 70%;
         /* Full width for mobile screens */
         height: auto;
-        /* Adjust height based on content */
         padding: 10px;
-        /* Reduce padding for compact layout */
         margin-bottom: 110px;
-        /* Add spacing between stacked sections */
     }
 }
 
@@ -61,7 +57,6 @@
         scale: 1;
         /* Reset scaling */
         margin-bottom: 20px;
-        /* Add moderate spacing between sections */
         padding: 20px;
         /* Add padding for better layout */
     }
@@ -92,9 +87,7 @@
         flex-direction: row;
         /* Align sections horizontally */
         scale: 1;
-        /* Ensure no scaling issues */
         margin-bottom: 30px;
-        /* Moderate spacing */
         padding: 20px;
     }
 
@@ -102,12 +95,10 @@
         width: 60%;
         /* Occupy a reasonable width */
         height: auto;
-        /* Allow flexible height */
         padding: 20px;
         margin-right: 20px;
-        /* Standard margin for spacing */
         margin-bottom: 0;
-        /* No additional spacing for horizontal layout */
+
     }
 }
 
@@ -120,11 +111,8 @@
 
     .checkout-section {
         width: 125%;
-        /* Slightly narrower than full width */
         height: auto;
-        /* Flexible height */
         padding: 15px;
-        /* Add spacing below section */
     }
 }
 
@@ -137,11 +125,8 @@
 
     .checkout-section {
         width: 125%;
-        /* Slightly narrower than full width */
         height: auto;
-        /* Flexible height */
         padding: 15px;
-        /* Add spacing below section */
     }
 }
 
@@ -150,10 +135,7 @@
 
     .checkout-section {
         width: 30%;
-        /* Slightly narrower than full width */
         height: auto;
-        /* Flexible height */
         padding: 15px;
-        /* Add spacing below section */
     }
 }
