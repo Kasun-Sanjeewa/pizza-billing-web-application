@@ -266,7 +266,7 @@
 
     .main-content {
         margin-left: 0;
-        margin-top: 4.5rem;
+        margin-top: 6rem;
         padding: 0.5rem;
     }
 
@@ -340,7 +340,7 @@
 
     .main-content {
         margin-left: 70px;
-        margin-top: 4.5rem;
+        margin-top: 0.1rem;
         padding: 0.75rem;
     }
 
@@ -381,6 +381,7 @@
         padding: 0.75rem 1rem;
     }
 }
+
 
 /* Medium Devices (Tablets and Small Laptops, 768px to 992px) */
 @media (min-width: 768px) and (max-width: 991.98px) {
@@ -424,11 +425,12 @@
     }
 }
 
+
 /* Large Devices (Desktops, 992px to 1200px) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .main-content {
         margin-left: 100px;
-        margin-top: 5rem;
+        margin-top: 4.3rem;
         padding: 1.5rem;
     }
 

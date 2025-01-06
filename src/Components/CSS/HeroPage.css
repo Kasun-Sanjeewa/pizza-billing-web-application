@@ -38,6 +38,7 @@
         /* Adjust height based on content */
         padding: 10px;
         /* Add padding for better layout on smaller screens */
+        margin-left: 40px;
     }
 
     .checkout-section {
