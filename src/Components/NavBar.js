@@ -3,6 +3,7 @@ import { FaHome, FaSignOutAlt, FaPowerOff, FaUserShield } from 'react-icons/fa';
 import './CSS/NavBar.css';
 import HeroPage from './HeroPage';
 
+// SidebarItem: Renders an individual item in the sidebar with icon and label
 function SidebarItem({ icon, label, active }) {
     return (
         <div className={`sidebar-item ${active ? 'active' : ''}`}>
@@ -12,10 +13,12 @@ function SidebarItem({ icon, label, active }) {
     );
 }
 
+// NavBar: Main navigation component for the app
 function NavBar({ isTrueHandler }) {
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
     const [showExitPopup, setShowExitPopup] = useState(false);
 
+    // Handler to switch to the admin page
     const pageHandler = () => {
         isTrueHandler(false);
     };
@@ -33,18 +36,22 @@ function NavBar({ isTrueHandler }) {
         }
     };
 
+    // Refreshes the page to reload the app
     const refreshPage = () => {
         window.location.reload();
     };
 
+    // Smoothly scrolls the page up
     const scrollUp = () => {
         window.scrollBy({ top: -100, behavior: 'smooth' });
     };
 
+    // Smoothly scrolls the page down
     const scrollDown = () => {
         window.scrollBy({ top: 100, behavior: 'smooth' });
     };
 
+    // Updates the current time every second
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentTime(new Date().toLocaleString());
@@ -53,20 +60,23 @@ function NavBar({ isTrueHandler }) {
         return () => clearInterval(interval);
     }, []);
 
+    // Shows the exit confirmation popup
     const handleExit = () => {
         setShowExitPopup(true);
     };
 
+    // Confirms exit and closes the app (works in environments where window.close() is allowed)
     const confirmExit = () => {
         // Close the app logic
         window.close();
     };
 
+    // Cancels the exit confirmation popup
     const cancelExit = () => {
         setShowExitPopup(false);
     };
 
-
+    // Logs out the user by clearing local state and reloading the app
     const handleLogout = () => {
         // Clear any relevant state or localStorage items
         localStorage.removeItem('isTrue');
