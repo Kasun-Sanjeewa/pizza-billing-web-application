@@ -4,7 +4,7 @@ import Invoice from './Receipt';
 import ReactDOM from 'react-dom/client';
 
 export default function Checkout({ selectedItems, onCheckoutComplete }) {
-    const [paymentData, setPaymentData] = useState(null);
+    const [paymentData, setPaymentData] = useState(null); // State to store payment data fetched from the backend
     const TAX_RATE = 0.1; // 10% tax
 
     // Fetch payment data when the component mounts or when needed
@@ -33,6 +33,7 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
     const taxAmount = (totalAmount * TAX_RATE).toFixed(2);
     const payableAmount = (parseFloat(totalAmount) + parseFloat(taxAmount)).toFixed(2);
 
+    // Handle checkout process
     const handleCheckout = async () => {
         // Check if no items are selected
         if (selectedItems.length === 0) {
@@ -94,6 +95,7 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
         }
     };
 
+    // Handle printing of the invoice in a new tab
     const handleCheckoutPrint = (invoiceNumber) => {
         if (selectedItems.length === 0) {
             alert("No items selected. Please add items to checkout.");
