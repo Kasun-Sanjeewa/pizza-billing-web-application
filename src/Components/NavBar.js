@@ -120,9 +120,9 @@ function NavBar({ isTrueHandler }) {
                         <i className="fa-solid fa-user" />
                         Kasun Sanjeewa
                     </div>
-                    <div>Pizza Restaurant</div>
-                    <div>{currentTime}</div>
-                    <div>Powered By KSgroup.com</div>
+                    <div className='location'><i className="fa-solid fa-location-dot" />Pizza Restaurant</div>
+                    <div className='time'><i className="fa-solid fa-clock" />{currentTime}</div>
+                    <div className='copyright'><i className="fa-solid fa-copyright" />Powered By KSgroup.com</div>
                 </div>
             </div>
 

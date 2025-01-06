@@ -191,6 +191,17 @@
     margin-right: 10px;
 }
 
+.location>i {
+    margin-right: 10px;
+}
+
+.time>i {
+    margin-right: 10px;
+}
+
+.copyright>i {
+    margin-right: 10px;
+}
 
 .popup-overlay {
     position: fixed;
