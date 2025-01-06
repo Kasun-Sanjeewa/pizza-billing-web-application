@@ -20,7 +20,7 @@
     height: auto
 }
 
-/* Hide menu-section on mobile */
+/* Small Devices (Phones, less than 576px) */
 @media (max-width: 576px) {
     .menu-section {
         display: none;
@@ -30,67 +30,116 @@
     .container {
         flex-direction: column;
         /* Stack sections vertically */
-        scale: 100%;
-        /* Reset scaling for better readability on smaller screens */
-        margin-bottom: 20px;
-        /* Reduce margin */
+        scale: 1;
+        /* Ensure proper scaling */
+        margin-bottom: 15px;
+        /* Reduce margin for better spacing */
         height: auto;
-        /* Allow the height to adjust based on content */
+        /* Adjust height based on content */
+        padding: 10px;
+        /* Add padding for better layout on smaller screens */
     }
 
     .checkout-section {
-        width: 100%;
+        width: 70%;
         /* Full width for mobile screens */
         height: auto;
         /* Adjust height based on content */
-        padding: 15px;
-        /* Reduce padding */
-        margin-bottom: 20px;
+        padding: 10px;
+        /* Reduce padding for compact layout */
+        margin-bottom: 110px;
         /* Add spacing between stacked sections */
     }
 }
 
-/* Medium Devices (Tablets) */
-@media (max-width: 768px) {
+/* Medium Devices (Tablets, 576px to 768px) */
+@media (min-width: 576px) and (max-width: 768px) {
     .container {
         flex-direction: column;
         /* Stack sections vertically */
-        scale: 100%;
+        scale: 1;
         /* Reset scaling */
-        margin-bottom: 30px;
-        /* Moderate margin */
+        margin-bottom: 20px;
+        /* Add moderate spacing between sections */
+        padding: 20px;
+        /* Add padding for better layout */
     }
 
     .checkout-section {
-        width: 75%;
+        width: 90%;
         /* Slightly narrower than full width */
         height: auto;
         /* Flexible height */
-        padding: 20px;
-        margin-bottom: 100px;
-        margin-right: 5000px;
+        padding: 15px;
+        margin-bottom: 20px;
+        /* Add spacing below section */
+        margin-right: auto;
+        /* Remove unnecessary large margin-right value */
+        margin-left: auto;
+        /* Center the section horizontally */
+    }
+
+    .menu-section {
+        display: none;
+        /* Hide menu-section on mobile devices */
     }
 }
 
-/* Large Devices (Desktops and Above) 
-@media (min-width: 1200px) {
+/* Large Devices (Desktops, greater than 768px) */
+@media (min-width: 768px) {
     .container {
         flex-direction: row;
-     
-        scale: 95%;
-
-        margin-bottom: 50px;
-
-        height: 100%;
-
+        /* Align sections horizontally */
+        scale: 1;
+        /* Ensure no scaling issues */
+        margin-bottom: 30px;
+        /* Moderate spacing */
+        padding: 20px;
     }
 
     .checkout-section {
-        width: 30%;
-
-        height: 800px;
-
+        width: 60%;
+        /* Occupy a reasonable width */
+        height: auto;
+        /* Allow flexible height */
         padding: 20px;
-
+        margin-right: 20px;
+        /* Standard margin for spacing */
+        margin-bottom: 0;
+        /* No additional spacing for horizontal layout */
     }
-}*/
+}
+
+/* Medium Devices (Tablets and Small Laptops, 768px to 992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .menu-section {
+        display: none;
+        /* Hide menu-section on mobile devices */
+    }
+
+    .checkout-section {
+        width: 125%;
+        /* Slightly narrower than full width */
+        height: auto;
+        /* Flexible height */
+        padding: 15px;
+        /* Add spacing below section */
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .menu-section {
+        width: 380px;
+        /* Hide menu-section on mobile devices */
+    }
+
+    .checkout-section {
+        width: 125%;
+        /* Slightly narrower than full width */
+        height: auto;
+        /* Flexible height */
+        padding: 15px;
+        /* Add spacing below section */
+    }
+}
