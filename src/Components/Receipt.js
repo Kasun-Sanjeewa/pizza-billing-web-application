@@ -128,7 +128,7 @@ const Invoice = ({ invoiceNumber, customer, date, cashier, items, total, tax, pa
 
                 <div style={styles.footer}>
                     <p>Thank You..! Come Again</p>
-                    <p>Software by KSSoftware</p>
+                    <p>Software by Kasun Sanjeewa</p>
                     <p>One Solution for Everything</p>
                     <p>0783099142 | www.ksgroup.com</p>
                 </div>
