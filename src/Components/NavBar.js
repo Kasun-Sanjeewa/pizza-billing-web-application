@@ -13,62 +13,65 @@ function SidebarItem({ icon, label, active }) {
 }
 
 function NavBar({ isTrueHandler }) {
-
     const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
+    const [showExitPopup, setShowExitPopup] = useState(false);
 
     const pageHandler = () => {
         isTrueHandler(false);
     };
 
-    // Function to toggle fullscreen
     const toggleFullScreen = () => {
-        const elem = document.documentElement; // Select the entire document for fullscreen
+        const elem = document.documentElement;
         if (!document.fullscreenElement) {
-            // Enter fullscreen mode
-            elem.requestFullscreen().catch(err => {
+            elem.requestFullscreen().catch((err) => {
                 console.error(`Error attempting to enable fullscreen: ${err.message} (${err.name})`);
             });
         } else {
-            // Exit fullscreen mode
-            document.exitFullscreen().catch(err => {
+            document.exitFullscreen().catch((err) => {
                 console.error(`Error attempting to exit fullscreen: ${err.message} (${err.name})`);
             });
         }
     };
 
-    // Function to refresh the page
     const refreshPage = () => {
-        window.location.reload(); // Reload the page
+        window.location.reload();
     };
 
-    // Scroll the page up
     const scrollUp = () => {
-        window.scrollBy({ top: -100, behavior: 'smooth' }); // Scroll up by 100px
+        window.scrollBy({ top: -100, behavior: 'smooth' });
     };
 
-    // Scroll the page down
     const scrollDown = () => {
-        window.scrollBy({ top: 100, behavior: 'smooth' }); // Scroll down by 100px
+        window.scrollBy({ top: 100, behavior: 'smooth' });
     };
 
-    //Show a live time counter
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentTime(new Date().toLocaleString());
         }, 1000);
 
-        // Cleanup interval on component unmount
         return () => clearInterval(interval);
     }, []);
 
+    const handleExit = () => {
+        setShowExitPopup(true);
+    };
+
+    const confirmExit = () => {
+        // Close the app logic
+        window.close();
+    };
+
+    const cancelExit = () => {
+        setShowExitPopup(false);
+    };
+
     return (
         <div className="app">
-            {/* Main Content */}
             <div className="main-content">
                 <HeroPage />
-                {/* Top Menu */}
                 <div className="top-menu">
-                    <div className="logo">PizzaHut</div> {/* Add the logo */}
+                    <div className="logo">PizzaHut</div>
                     <div className="top-menu-items">
                         <button className="btn down" onClick={scrollDown}>
                             <i className="fa-solid fa-arrows-down-to-line" />
@@ -78,29 +81,54 @@ function NavBar({ isTrueHandler }) {
                             <i className="fa-solid fa-arrows-up-to-line" />
                             <p>Up</p>
                         </button>
-                        <button className="btn full" onClick={toggleFullScreen}><i className="fa-solid fa-expand" />Full</button>
-                        <button className="btn new" onClick={refreshPage}><i className="fa-solid fa-arrows-rotate" />New</button>
+                        <button className="btn full" onClick={toggleFullScreen}>
+                            <i className="fa-solid fa-expand" />
+                            Full
+                        </button>
+                        <button className="btn new" onClick={refreshPage}>
+                            <i className="fa-solid fa-arrows-rotate" />
+                            New
+                        </button>
                     </div>
                 </div>
 
-                {/* Sidebar */}
                 <div className="sidebar">
                     <SidebarItem icon={<FaHome />} label="POS" active />
-                    <button className='Admin-btn' onClick={pageHandler}>
+                    <button className="Admin-btn" onClick={pageHandler}>
                         <SidebarItem icon={<FaUserShield />} label="Admin" />
                     </button>
                     <SidebarItem icon={<FaSignOutAlt />} label="Logout" />
-                    <SidebarItem icon={<FaPowerOff />} label="Exit" />
+                    <button className="Exit-btn" onClick={handleExit}>
+                        <SidebarItem icon={<FaPowerOff />} label="Exit" />
+                    </button>
                 </div>
 
-                {/* Status Bar */}
                 <div className="status-bar">
-                    <div className='user-name'><i class="fa-solid fa-user" />Kasun Sanjeewa</div>
+                    <div className="user-name">
+                        <i className="fa-solid fa-user" />
+                        Kasun Sanjeewa
+                    </div>
                     <div>Pizza Restaurant</div>
                     <div>{currentTime}</div>
                     <div>Powered By KSgroup.com</div>
                 </div>
             </div>
+
+            {showExitPopup && (
+                <div className="popup-overlay">
+                    <div className="popup">
+                        <h2>Do you really need to exit from POS?</h2>
+                        <div className="popup-buttons">
+                            <button className="btn cancel" onClick={cancelExit}>
+                                No
+                            </button>
+                            <button className="btn confirm" onClick={confirmExit}>
+                                Yes! Close App
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
