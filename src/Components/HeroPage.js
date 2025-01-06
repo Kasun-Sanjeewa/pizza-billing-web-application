@@ -5,11 +5,18 @@ import Checkout from './Checkout';
 import './CSS/HeroPage.css';
 
 const HeroPage = () => {
-    const [selectedCategory, setSelectedCategory] = useState('All Items');
-    const [selectedItems, setSelectedItems] = useState([]); // State to track selected items
 
+    // State to track the currently selected category (default is 'All Items')
+    const [selectedCategory, setSelectedCategory] = useState('All Items');
+
+    // State to track selected items
+    const [selectedItems, setSelectedItems] = useState([]);
+
+    // Function to add items to the checkout
     const addItemToCheckout = (item) => {
         setSelectedItems((prevItems) => {
+
+            // Check if the item already exists in the checkout
             const itemIndex = prevItems.findIndex((i) => i.barcode === item.barcode);
             if (itemIndex > -1) {
                 // Item exists, update the quantity
@@ -23,6 +30,8 @@ const HeroPage = () => {
         });
     };
 
+
+    // Function to clear the selected items (i.e., when checkout is completed)
     const clearCheckout = () => {
         setSelectedItems([]); // Clear the selected items
     };
