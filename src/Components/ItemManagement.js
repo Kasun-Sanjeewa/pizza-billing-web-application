@@ -2,16 +2,19 @@ import React, { useEffect, useState } from 'react';
 import './CSS/ItemManagement.css';
 
 const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
-    const [items, setItems] = useState([]);
-    const [newItem, setNewItem] = useState({
+
+    // State variables to hold item data and form inputs
+    const [items, setItems] = useState([]); // Store all items
+    const [newItem, setNewItem] = useState({ // Track input fields for new item
         name: '',
         barcode: '',
         price: '',
         img: '',
         category: '',
     });
-    const [editingItem, setEditingItem] = useState(null);
+    const [editingItem, setEditingItem] = useState(null); // Store item being edited
 
+    // Available categories for item selection
     const categories = [
         'Classic Pizzas',
         'Meat Lovers',
@@ -25,25 +28,29 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
         'Dessert Pizzas',
     ];
 
+    // Fetch the items from the API when component mounts
     useEffect(() => {
         const fetchItems = async () => {
             try {
                 const response = await fetch('http://localhost:8080/products');
                 const data = await response.json();
-                setItems(data);
+                setItems(data); // Update the items state with fetched data
             } catch (error) {
                 console.error('Error fetching items:', error);
             }
         };
         fetchItems();
-    }, []);
+    }, []); // Empty dependency array means this runs only once after the first render
 
+
+    // Handle adding a new item
     const handleAddItem = async () => {
         const itemToAdd = {
             ...newItem,
-            price: newItem.price === '' ? 0 : Number(newItem.price),
+            price: newItem.price === '' ? 0 : Number(newItem.price), // Ensure price is a number
         };
 
+        // Validate that all fields are filled before adding
         if (itemToAdd.name && itemToAdd.barcode && itemToAdd.price && itemToAdd.img && itemToAdd.category) {
             try {
                 const response = await fetch('http://localhost:8080/products', {
@@ -54,15 +61,17 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
                     body: JSON.stringify(itemToAdd),
                 });
 
-                const addedItem = await response.json();
-                setItems([...items, addedItem]);
-                setNewItem({ name: '', barcode: '', price: '', img: '', category: '' });
+                const addedItem = await response.json(); // Parse the response from the server
+                setItems([...items, addedItem]); // Add the newly added item to the items list
+                setNewItem({ name: '', barcode: '', price: '', img: '', category: '' }); // Reset input fields after adding
             } catch (error) {
                 console.error('Error adding item:', error);
             }
         }
     };
 
+
+    // Handle deleting an item by its ID
     const handleDeleteItem = async (id) => {
         const confirmDelete = window.confirm('Are you sure you want to delete this item?');
         if (confirmDelete) {
@@ -79,10 +88,13 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
         }
     };
 
+
+    // Set the item to be edited
     const handleEditItem = (item) => {
-        setEditingItem({ ...item });
+        setEditingItem({ ...item }); // Copy item data into editingItem state
     };
 
+    // Save the updated item
     const handleSaveItem = async () => {
         const updatedItem = {
             ...editingItem,
@@ -91,7 +103,7 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
 
         try {
             const response = await fetch(`http://localhost:8080/products/${editingItem.id}`, {
-                method: 'PUT',
+                method: 'PUT', // HTTP PUT request to update an existing item
                 headers: {
                     'Content-Type': 'application/json',
                 },
@@ -107,8 +119,10 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
         }
     };
 
+
+    // Navigate back to the previous view (navbar)
     const goBackToNavBar = () => {
-        isTrueHandler(true);
+        isTrueHandler(true); // Invoke parent handler to reset view
     };
 
     return (
@@ -203,6 +217,7 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
                 ))}
             </div>
 
+            {/* Button to navigate back to the home screen */}
             <div className="center-button-container">
                 <button className="center-button" onClick={goBackToNavBar}>Back to Home</button>
             </div>
