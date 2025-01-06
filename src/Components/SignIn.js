@@ -6,11 +6,12 @@ const SignIn = ({ onLogin }) => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
+    // Function to handle login form submission
     const handleLogin = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Prevent the default form submission behavior
 
         try {
-            // Replace with your actual API endpoint
+            // API endpoint for login
             const response = await fetch('http://localhost:8080/login', {
                 method: 'POST',
                 headers: {
@@ -34,6 +35,7 @@ const SignIn = ({ onLogin }) => {
         }
     };
 
+    // Render the SignIn component
     return (
         <div className="signin-container">
             <div className="signin-left">
