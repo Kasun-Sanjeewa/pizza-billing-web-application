@@ -143,3 +143,16 @@
         /* Add spacing below section */
     }
 }
+
+@media (min-width: 1200px) {
+
+
+    .checkout-section {
+        width: 30%;
+        /* Slightly narrower than full width */
+        height: auto;
+        /* Flexible height */
+        padding: 15px;
+        /* Add spacing below section */
+    }
+}
