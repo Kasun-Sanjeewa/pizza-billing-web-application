@@ -68,7 +68,7 @@ function NavBar({ isTrueHandler }) {
     // Confirms exit and closes the app (works in environments where window.close() is allowed)
     const confirmExit = () => {
         // Close the app logic
-        window.close();
+        window.location.href = '/';
     };
 
     // Cancels the exit confirmation popup
