@@ -177,6 +177,16 @@
     background: none;
 }
 
+.logout-btn {
+    all: unset;
+    background: none;
+}
+
+.Exit-btn {
+    all: unset;
+    background: none;
+}
+
 .user-name>i {
     margin-right: 10px;
 }

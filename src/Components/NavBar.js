@@ -66,6 +66,15 @@ function NavBar({ isTrueHandler }) {
         setShowExitPopup(false);
     };
 
+
+    const handleLogout = () => {
+        // Clear any relevant state or localStorage items
+        localStorage.removeItem('isTrue');
+        // Log out by setting authentication state to false
+        isTrueHandler(true);  // Optionally reset `isTrue` value if needed
+        window.location.reload();  // Reload to trigger re-render of `App`
+    };
+
     return (
         <div className="app">
             <div className="main-content">
@@ -97,7 +106,10 @@ function NavBar({ isTrueHandler }) {
                     <button className="Admin-btn" onClick={pageHandler}>
                         <SidebarItem icon={<FaUserShield />} label="Admin" />
                     </button>
-                    <SidebarItem icon={<FaSignOutAlt />} label="Logout" />
+                    <button onClick={handleLogout} className='logout-btn'>
+                        <SidebarItem icon={<FaSignOutAlt />} label="Logout" />
+                    </button>
+
                     <button className="Exit-btn" onClick={handleExit}>
                         <SidebarItem icon={<FaPowerOff />} label="Exit" />
                     </button>

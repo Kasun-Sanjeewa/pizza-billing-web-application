@@ -1,0 +1,126 @@
+/* Main container for the login screen */
+/* Main container for the login screen */
+.signin-container {
+    display: flex;
+    width: 80%;
+    max-width: 1700px;
+    height: 700px;
+    font-family: 'Arial', sans-serif;
+    background: #f7f7f7;
+    margin-left: auto;
+    margin-right: auto;
+    /* Centering the container */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Light background color */
+}
+
+/* Left section styling */
+.signin-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: #ffffff;
+    /* White background */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    border-radius: 10px 0 0 10px;
+}
+
+.signin-left h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    color: #333333;
+    /* Dark text */
+}
+
+
+
+/* Form fields styling */
+.sign-form-group {
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+}
+
+.sign-form-group input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background: #f9f9f9;
+    /* Light background for inputs */
+}
+
+.sign-form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    /* Highlighted border on focus */
+}
+
+/* Error message styling */
+.error {
+    color: #e74c3c;
+    /* Red color for error messages */
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* Button styling */
+.signin-btn {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    background: #007bff;
+    /* Primary blue color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signin-btn:hover {
+    background: #0056b3;
+    /* Darker blue on hover */
+}
+
+/* Right section styling */
+.signin-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #2c2c2c;
+    /* Dark background */
+    color: #ffffff;
+    /* White text */
+    border-radius: 0 10px 10px 0;
+}
+
+.welcome-message h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.welcome-message p {
+    font-size: 16px;
+    text-align: center;
+    max-width: 280px;
+    line-height: 1.5;
+}
