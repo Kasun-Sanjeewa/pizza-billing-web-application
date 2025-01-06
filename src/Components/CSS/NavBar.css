@@ -474,13 +474,13 @@
 @media (min-width: 1200px) {
     .main-content {
         margin-left: 120px;
-        margin-top: 6rem;
+        margin-top: 4.5rem;
         padding: 2rem;
     }
 
     .sidebar {
         width: 120px;
-        top: 6.6rem;
+        top: 7.3rem;
     }
 
     .sidebar-item {
