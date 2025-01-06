@@ -37,7 +37,7 @@ const SignIn = ({ onLogin }) => {
     return (
         <div className="signin-container">
             <div className="signin-left">
-                <h2>Sign in to Payshia POS System</h2>
+                <h2>Sign in to POS System</h2>
                 <form onSubmit={handleLogin}>
                     <div className="sign-form-group">
                         <input
