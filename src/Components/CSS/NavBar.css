@@ -177,6 +177,9 @@
     background: none;
 }
 
+.user-name>i {
+    margin-right: 10px;
+}
 
 /* Small Devices (Mobile) */
 @media (max-width: 600px) {

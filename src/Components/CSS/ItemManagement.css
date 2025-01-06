@@ -124,16 +124,28 @@ button:hover {
 }
 
 .edit-btn {
-    width: 130px;
+    width: 150px;
     background-color: #05b40e;
     border-radius: 5px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.edit-btn>i {
+    margin-right: 8px;
+}
+
+.delete-btn>i {
+    margin-right: 8px;
 }
 
 .delete-btn {
-    width: 130px;
+    width: 150px;
     background-color: #f51e02;
     border-radius: 5px;
     margin-bottom: 10px;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 /* Style for the category dropdown input */

@@ -195,8 +195,8 @@ const ItemManagement = ({ isTrueHandler, handleNewItem }) => {
                                     <p className="item-price">Price: LKR {item.price}</p>
                                     <p className="item-category">Category: {item.category}</p>
                                 </div>
-                                <button onClick={() => handleEditItem(item)} className="edit-btn">Edit</button>
-                                <button onClick={() => handleDeleteItem(item.id)} className="delete-btn">Delete</button>
+                                <button onClick={() => handleEditItem(item)} className="edit-btn"><i class="fa-solid fa-pen-to-square" /> Edit</button>
+                                <button onClick={() => handleDeleteItem(item.id)} className="delete-btn"><i class="fa-solid fa-trash" />Delete</button>
                             </>
                         )}
                     </div>

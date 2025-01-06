@@ -141,8 +141,8 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
                 </ul>
             </div>
             <div className="checkout-details">
-                <div className="checkout-text">Total: LKR {totalAmount}</div>
                 <div className="checkout-text">Tax (10%): LKR {taxAmount}</div>
+                <div className="checkout-text">Total: LKR {totalAmount}</div>
                 <div className="checkout-text-payable"><i className="fa-solid fa-money-bill" />Payable: LKR {payableAmount}</div>
             </div>
             <button className="proceed-button" onClick={handleCheckout}>

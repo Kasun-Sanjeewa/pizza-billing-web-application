@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaHome, FaSignOutAlt, FaPowerOff, FaUserShield } from 'react-icons/fa';
 import './CSS/NavBar.css';
 import HeroPage from './HeroPage';
@@ -13,6 +13,8 @@ function SidebarItem({ icon, label, active }) {
 }
 
 function NavBar({ isTrueHandler }) {
+
+    const [currentTime, setCurrentTime] = useState(new Date().toLocaleString());
 
     const pageHandler = () => {
         isTrueHandler(false);
@@ -49,6 +51,16 @@ function NavBar({ isTrueHandler }) {
         window.scrollBy({ top: 100, behavior: 'smooth' }); // Scroll down by 100px
     };
 
+    //Show a live time counter
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentTime(new Date().toLocaleString());
+        }, 1000);
+
+        // Cleanup interval on component unmount
+        return () => clearInterval(interval);
+    }, []);
+
     return (
         <div className="app">
             {/* Main Content */}
@@ -83,9 +95,9 @@ function NavBar({ isTrueHandler }) {
 
                 {/* Status Bar */}
                 <div className="status-bar">
-                    <div>Kasun Sanjeewa</div>
+                    <div className='user-name'><i class="fa-solid fa-user" />Kasun Sanjeewa</div>
                     <div>Pizza Restaurant</div>
-                    <div>{new Date().toLocaleString()}</div>
+                    <div>{currentTime}</div>
                     <div>Powered By KSgroup.com</div>
                 </div>
             </div>
