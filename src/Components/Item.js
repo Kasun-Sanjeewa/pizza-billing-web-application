@@ -3,10 +3,12 @@ import JsBarcode from 'jsbarcode';
 import './CSS/Item.css';
 
 const Item = ({ selectedCategory, addItemToCheckout }) => {
-    const [items, setItems] = useState([]);
-    const [filteredItems, setFilteredItems] = useState([]);
-    const [errorMessage, setErrorMessage] = useState('');
-    const barcodeRefs = useRef([]);
+
+    // State to manage all items and filtered items based on category
+    const [items, setItems] = useState([]); // Stores all fetched items
+    const [filteredItems, setFilteredItems] = useState([]); // Stores items filtered by category
+    const [errorMessage, setErrorMessage] = useState(''); // Stores any error message
+    const barcodeRefs = useRef([]); // Holds references to barcode SVG elements
 
     // Fetch all items when the component loads
     useEffect(() => {
@@ -32,6 +34,8 @@ const Item = ({ selectedCategory, addItemToCheckout }) => {
 
     // Filter items based on the selected category
     useEffect(() => {
+
+        // If 'All Items' category is selected, show all items
         if (selectedCategory === 'All Items') {
             setFilteredItems(items); // Show all items
             setErrorMessage(''); // Clear error message
@@ -40,13 +44,14 @@ const Item = ({ selectedCategory, addItemToCheckout }) => {
                 (item) => item.category === selectedCategory
             );
 
+            // Check if any items were found for the selected category
             if (categoryItems.length > 0) {
                 setFilteredItems(categoryItems); // Show filtered items
                 setErrorMessage(''); // Clear error message
             } else {
                 setFilteredItems([]); // No items to display
                 setErrorMessage(
-                    `No items found in the "${selectedCategory}" category.`
+                    `No items found in the "${selectedCategory}" category.` // Display a message if no items found
                 );
             }
         }
@@ -54,18 +59,21 @@ const Item = ({ selectedCategory, addItemToCheckout }) => {
 
     // Generate barcodes for displayed items
     useEffect(() => {
+
+        // Iterate over filtered items and generate barcodes using JsBarcode
         filteredItems.forEach((item, index) => {
             if (barcodeRefs.current[index]) {
                 JsBarcode(barcodeRefs.current[index], item.barcode, {
-                    format: 'CODE128',
-                    width: 2,
-                    height: 50,
-                    displayValue: false,
+                    format: 'CODE128',  // Barcode format
+                    width: 2,  // Barcode width
+                    height: 50, // Barcode height
+                    displayValue: false, // Hide barcode value text
                 });
             }
         });
     }, [filteredItems]);
 
+    // Handle the event when an item is clicked to add it to the checkout
     const handleItemClick = (item) => {
         addItemToCheckout(item); // Add the item to checkout when clicked
     };
