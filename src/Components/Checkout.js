@@ -31,7 +31,7 @@ export default function Checkout({ selectedItems, onCheckoutComplete }) {
     // Calculate the total and tax
     const totalAmount = selectedItems.reduce((acc, item) => acc + item.price * item.quantity, 0).toFixed(2);
     const taxAmount = (totalAmount * TAX_RATE).toFixed(2);
-    const payableAmount = (parseFloat(totalAmount) + parseFloat(taxAmount)).toFixed(2);
+    const payableAmount = (parseFloat(totalAmount) - parseFloat(taxAmount)).toFixed(2);
 
     // Handle checkout process
     const handleCheckout = async () => {
