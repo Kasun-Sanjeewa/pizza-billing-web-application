@@ -194,19 +194,16 @@
 
     .item-image {
         height: 240px;
-        /* Default height */
     }
 
     .item-name {
         font-size: 18px;
-        /* Standard font size */
     }
 
     .item-barcode,
     .item-barcode-number,
     .item-price {
         font-size: 14px;
-        /* Standard text size */
     }
 
     .search-bar {
