@@ -26,15 +26,19 @@ Ensure you have the following installed on your system:
 
 ## Setup Instructions
 
-### 1. Clone the Repository
+### 1. Clone the Frontend Repository
 ```bash
-git clone <repository-url>
-cd <repository-folder>
+git clone https://github.com/Kasun-Sanjeewa/pizza-billing-web-application-frontend.git
+```
+
+### 1. Clone the Backend Repository
+```bash
+git clone https://github.com/Kasun-Sanjeewa/pizza-billing-web-application-backend.git
 ```
 
 ### 2. Setting Up the Database (MySQL)
-1. Create a MySQL database named `pizza-billing`.
-2. Import the provided database file:
+1. Import the provided database file
+2. Insert your database credentials
    ```bash
    mysql -u <username> -p pizza-billing < database.sql
    ```
@@ -42,26 +46,10 @@ cd <repository-folder>
    ```go
    DB, err = sql.Open("mysql", "<username>:<password>@tcp(localhost:3306)/pizza-billing")
    ```
-
-### 3. Setting Up the Backend (Go)
-1. Navigate to the backend folder:
-   ```bash
-   cd backend
-   ```
-2. Install dependencies:
-   ```bash
-   go mod tidy
-   ```
-3. Run the backend server:
-   ```bash
-   go run main.go
-   ```
-4. By default, the backend will run on `http://localhost:8080`. You can change the port in the `main.go` file if needed.
-
-### 4. Setting Up the Frontend (React)
+### 3. Setting Up the Frontend (React)
 1. Navigate to the frontend folder:
    ```bash
-   cd ../frontend
+   cd pizza-billing-web-application-frontend
    ```
 2. Install dependencies:
    ```bash
@@ -77,14 +65,59 @@ cd <repository-folder>
    ```
 4. The frontend will run on `http://localhost:3000` by default.
 
+### 4. Setting Up the Backend (Go)
+1. Navigate to the backend folder:
+   ```bash
+   cd pizza-billing-web-application-backend
+   ```
+2. Install dependencies:
+   ```bash
+   go mod tidy
+   ```
+3. Run the backend server:
+   ```bash
+   go run main.go
+   ```
+4. By default, the backend will run on `http://localhost:8080`. You can change the port in the `main.go` file if needed.
+
 ---
 
-## Configuration
+## If the project file already exists
 
-### API URL
-Ensure the frontend is configured to communicate with the backend:
-1. Open the `frontend/src/config.js` file (or equivalent configuration file).
-2. Set the API base URL to match the backend server (e.g., `http://localhost:8080`).
+1. Navigate to the frontend folder:
+   ```bash
+   cd pizza-billing-web-application-frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   # OR
+   yarn install
+   ```
+3. Start the React development server:
+   ```bash
+   npm start
+   # OR
+   yarn start
+   ```
+4. Navigate to the backend folder:
+   ```bash
+   cd pizza-billing-web-application-backend
+   ```
+5. Install dependencies:
+   ```bash
+   go mod tidy
+   ```
+6. Run the backend server:
+   ```bash
+   go run main.go
+   ```
+7. Enter signin credentials
+   ```bash
+   User Name = admin
+   Password = 123456
+   ```
+8. By default, the backend will run on `http://localhost:8080`. You can change the port in the `main.go` file if needed.
 
 ---
 
@@ -135,11 +168,5 @@ backend/
 - MySQL (for database management)
 
 ---
-
-## License
-This project is licensed under the [MIT License](LICENSE).
-
----
-
 ## Acknowledgments
 Special thanks to all the open-source contributors whose tools and libraries made this project possible.
