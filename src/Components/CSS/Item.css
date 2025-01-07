@@ -25,6 +25,7 @@
     align-items: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     height: 380px;
+    margin-top: 65px;
 }
 
 .item-card:hover {
@@ -79,6 +80,23 @@
     font-weight: bold;
     margin-top: 40%;
 }
+
+.search-bar {
+    text-align: center;
+    position: fixed;
+    width: 1080px;
+    margin-right: 20px;
+}
+
+.search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+
+}
+
 
 /* Small Devices (Mobile) */
 @media (max-width: 600px) {
@@ -143,7 +161,28 @@
         font-size: 13px;
         /* Moderate text size */
     }
+
+    .search-bar {
+        width: 400px;
+    }
 }
+
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+    .search-bar {
+        width: 230px;
+    }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .search-bar {
+        width: 230px;
+    }
+}
+
 
 /* Large Devices (Desktops and Above) */
 @media (min-width: 1200px) {
@@ -168,5 +207,9 @@
     .item-price {
         font-size: 14px;
         /* Standard text size */
+    }
+
+    .search-bar {
+        width: 520px;
     }
 }

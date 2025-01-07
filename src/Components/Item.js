@@ -3,12 +3,11 @@ import JsBarcode from 'jsbarcode';
 import './CSS/Item.css';
 
 const Item = ({ selectedCategory, addItemToCheckout }) => {
-
-    // State to manage all items and filtered items based on category
-    const [items, setItems] = useState([]); // Stores all fetched items
-    const [filteredItems, setFilteredItems] = useState([]); // Stores items filtered by category
-    const [errorMessage, setErrorMessage] = useState(''); // Stores any error message
-    const barcodeRefs = useRef([]); // Holds references to barcode SVG elements
+    const [items, setItems] = useState([]); // All items
+    const [filteredItems, setFilteredItems] = useState([]); // Filtered items
+    const [searchQuery, setSearchQuery] = useState(''); // Search query
+    const [errorMessage, setErrorMessage] = useState(''); // Error message
+    const barcodeRefs = useRef([]); // Barcode references
 
     // Fetch all items when the component loads
     useEffect(() => {
@@ -20,9 +19,9 @@ const Item = ({ selectedCategory, addItemToCheckout }) => {
                 }
 
                 const data = await response.json();
-                setItems(data); // Store all items in state
+                setItems(data); // Store all items
                 setFilteredItems(data); // Display all items by default
-                setErrorMessage(''); // Clear any error messages
+                setErrorMessage('');
             } catch (error) {
                 console.error('Error fetching items:', error);
                 setErrorMessage('Failed to fetch items. Please try again later.');
@@ -30,56 +29,72 @@ const Item = ({ selectedCategory, addItemToCheckout }) => {
         };
 
         fetchAllItems();
-    }, []); // Run only once on component load
+    }, []);
 
-    // Filter items based on the selected category
+    // Filter items based on selected category and search query
     useEffect(() => {
+        let categoryFilteredItems = items;
 
-        // If 'All Items' category is selected, show all items
-        if (selectedCategory === 'All Items') {
-            setFilteredItems(items); // Show all items
-            setErrorMessage(''); // Clear error message
-        } else {
-            const categoryItems = items.filter(
+        // Filter by category
+        if (selectedCategory !== 'All Items') {
+            categoryFilteredItems = items.filter(
                 (item) => item.category === selectedCategory
             );
-
-            // Check if any items were found for the selected category
-            if (categoryItems.length > 0) {
-                setFilteredItems(categoryItems); // Show filtered items
-                setErrorMessage(''); // Clear error message
-            } else {
-                setFilteredItems([]); // No items to display
-                setErrorMessage(
-                    `No items found in the "${selectedCategory}" category.` // Display a message if no items found
-                );
-            }
         }
-    }, [selectedCategory, items]); // Run whenever the selectedCategory or items change
 
-    // Generate barcodes for displayed items
+        // Filter by search query
+        const searchFilteredItems = categoryFilteredItems.filter((item) =>
+            item.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
+        if (searchFilteredItems.length > 0) {
+            setFilteredItems(searchFilteredItems);
+            setErrorMessage('');
+        } else {
+            setFilteredItems([]);
+            setErrorMessage(
+                `No items found${selectedCategory !== 'All Items' ? ` in the "${selectedCategory}" category` : ''} for "${searchQuery}".`
+            );
+        }
+    }, [selectedCategory, searchQuery, items]);
+
+    // Generate barcodes for filtered items
     useEffect(() => {
-
-        // Iterate over filtered items and generate barcodes using JsBarcode
         filteredItems.forEach((item, index) => {
             if (barcodeRefs.current[index]) {
                 JsBarcode(barcodeRefs.current[index], item.barcode, {
-                    format: 'CODE128',  // Barcode format
-                    width: 2,  // Barcode width
-                    height: 50, // Barcode height
-                    displayValue: false, // Hide barcode value text
+                    format: 'CODE128',
+                    width: 2,
+                    height: 50,
+                    displayValue: false,
                 });
             }
         });
     }, [filteredItems]);
 
-    // Handle the event when an item is clicked to add it to the checkout
+    // Handle search input change
+    const handleSearchChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
+    // Handle item click
     const handleItemClick = (item) => {
-        addItemToCheckout(item); // Add the item to checkout when clicked
+        addItemToCheckout(item);
     };
 
     return (
         <div className="items-section">
+            {/* Search bar */}
+            <div className="search-bar">
+                <input
+                    type="text"
+                    placeholder="Search items..."
+                    value={searchQuery}
+                    onChange={handleSearchChange}
+                    className="search-input"
+                />
+            </div>
+
             {errorMessage ? (
                 <p className="error-message">{errorMessage}</p>
             ) : (
@@ -87,7 +102,7 @@ const Item = ({ selectedCategory, addItemToCheckout }) => {
                     <div
                         className="item-card"
                         key={item.barcode}
-                        onClick={() => handleItemClick(item)} // Handle item click
+                        onClick={() => handleItemClick(item)}
                     >
                         <img src={item.img} alt={item.name} className="item-image" />
                         <div className="item-name">{item.name}</div>
