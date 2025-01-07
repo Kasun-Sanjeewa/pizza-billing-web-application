@@ -1,70 +1,172 @@
-# Getting Started with Create React App
+# Pizza Billing Web Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a full-stack pizza billing web application developed using **React.js** for the frontend and **Go** for the backend. The application includes features such as secure login, item management, POS functionality, real-time filtering, invoice generation, and admin controls for menu management.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
+- User authentication with secure login.
+- POS screen with category filtering and real-time item selection.
+- Invoice generation with tax calculations.
+- Admin interface for adding, editing, and deleting items.
+- Seamless integration between the React frontend and Go backend.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Prerequisites
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Ensure you have the following installed on your system:
+- **Node.js** (v16 or later)
+- **npm** or **yarn**
+- **Go** (v1.19 or later)
+- **Git**
+- **MySQL**
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Setup Instructions
 
-### `npm run build`
+### 1. Clone the Frontend Repository
+```bash
+git clone https://github.com/Kasun-Sanjeewa/pizza-billing-web-application-frontend.git
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Clone the Backend Repository
+```bash
+git clone https://github.com/Kasun-Sanjeewa/pizza-billing-web-application-backend.git
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. Setting Up the Database (MySQL)
+1. Import the provided database file
+2. Insert your database credentials
+   ```bash
+   mysql -u <username> -p pizza-billing < database.sql
+   ```
+3. Ensure the database credentials are correctly set in the `database.Connect` function in the backend code:
+   ```go
+   DB, err = sql.Open("mysql", "<username>:<password>@tcp(localhost:3306)/pizza-billing")
+   ```
+### 3. Setting Up the Frontend (React)
+1. Navigate to the frontend folder:
+   ```bash
+   cd pizza-billing-web-application-frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   # OR
+   yarn install
+   ```
+3. Start the React development server:
+   ```bash
+   npm start
+   # OR
+   yarn start
+   ```
+4. The frontend will run on `http://localhost:3000` by default.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 4. Setting Up the Backend (Go)
+1. Navigate to the backend folder:
+   ```bash
+   cd pizza-billing-web-application-backend
+   ```
+2. Install dependencies:
+   ```bash
+   go mod tidy
+   ```
+3. Run the backend server:
+   ```bash
+   go run main.go
+   ```
+4. By default, the backend will run on `http://localhost:8080`. You can change the port in the `main.go` file if needed.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## If the project file already exists
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Navigate to the frontend folder:
+   ```bash
+   cd pizza-billing-web-application-frontend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   # OR
+   yarn install
+   ```
+3. Start the React development server:
+   ```bash
+   npm start
+   # OR
+   yarn start
+   ```
+4. Navigate to the backend folder:
+   ```bash
+   cd pizza-billing-web-application-backend
+   ```
+5. Install dependencies:
+   ```bash
+   go mod tidy
+   ```
+6. Run the backend server:
+   ```bash
+   go run main.go
+   ```
+7. Enter signin credentials
+   ```bash
+   User Name = admin
+   Password = 123456
+   ```
+8. By default, the backend will run on `http://localhost:8080`. You can change the port in the `main.go` file if needed.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Usage
 
-## Learn More
+1. Access the application by visiting `http://localhost:3000` in your browser.
+2. Login with your credentials.
+3. Use the POS screen to manage orders and generate invoices.
+4. Use the admin panel to manage menu items.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Structure
 
-### Code Splitting
+### Frontend (React)
+```
+frontend/
+├── public/
+├── src/
+│   ├── components/   # Reusable components
+│   ├── pages/        # Application screens
+│   ├── utils/        # Utility functions
+│   └── App.js        # Main application file
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Backend (Go)
+```
+backend/
+├── main.go           # Entry point of the backend server
+├── routes/           # API routes
+├── models/           # Data models
+├── controllers/      # Request handlers
+└── database/         # Database connection logic
+```
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Technologies Used
 
-### Making a Progressive Web App
+### Frontend
+- React.js
+- HTML5, CSS3
+- Axios (for API requests)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Backend
+- Go
+- Gorilla Mux (for routing)
+- MySQL (for database management)
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+## Acknowledgments
+Special thanks to all the open-source contributors whose tools and libraries made this project possible.
