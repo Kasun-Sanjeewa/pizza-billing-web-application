@@ -20,6 +20,7 @@ Ensure you have the following installed on your system:
 - **npm** or **yarn**
 - **Go** (v1.19 or later)
 - **Git**
+- **MySQL**
 
 ---
 
@@ -31,7 +32,18 @@ git clone <repository-url>
 cd <repository-folder>
 ```
 
-### 2. Setting Up the Backend (Go)
+### 2. Setting Up the Database (MySQL)
+1. Create a MySQL database named `pizza-billing`.
+2. Import the provided database file:
+   ```bash
+   mysql -u <username> -p pizza-billing < database.sql
+   ```
+3. Ensure the database credentials are correctly set in the `database.Connect` function in the backend code:
+   ```go
+   DB, err = sql.Open("mysql", "<username>:<password>@tcp(localhost:3306)/pizza-billing")
+   ```
+
+### 3. Setting Up the Backend (Go)
 1. Navigate to the backend folder:
    ```bash
    cd backend
@@ -46,7 +58,7 @@ cd <repository-folder>
    ```
 4. By default, the backend will run on `http://localhost:8080`. You can change the port in the `main.go` file if needed.
 
-### 3. Setting Up the Frontend (React)
+### 4. Setting Up the Frontend (React)
 1. Navigate to the frontend folder:
    ```bash
    cd ../frontend
@@ -104,7 +116,8 @@ backend/
 ├── main.go           # Entry point of the backend server
 ├── routes/           # API routes
 ├── models/           # Data models
-└── controllers/      # Request handlers
+├── controllers/      # Request handlers
+└── database/         # Database connection logic
 ```
 
 ---
@@ -119,6 +132,7 @@ backend/
 ### Backend
 - Go
 - Gorilla Mux (for routing)
+- MySQL (for database management)
 
 ---
 
